@@ -1,6 +1,12 @@
+<!--
+ * @author: Clying
+-->
 <template>
   <div id="app">
-    <dy-button></dy-button>
+    <dy-button type="info">默认按钮</dy-button>
+    <dy-button type="success">默认按钮</dy-button>
+    <dy-button type="primary">默认按钮</dy-button>
+    <dy-button type="warning">默认按钮</dy-button>
     <dy-icon></dy-icon>
   </div>
 </template>
