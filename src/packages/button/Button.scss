@@ -9,11 +9,14 @@ $active-color:#3a8ee6;
 .dy-btn {
     border-radius      : $border-radius;
     border             : 1px solid $border-color;
+    padding            : 0 14px;
     height             : $height;
     font-size          : $font-size;
     cursor             : pointer;
     letter-spacing     : 0.09em;
-    outline            : none;
+    display            : inline-flex;
+    justify-content    : center;
+    align-items        : center;
     transition         : 0.2s;
     // 静止元素的文字被选中
     -moz-user-select   : none;
@@ -25,10 +28,77 @@ $active-color:#3a8ee6;
         border-color: $border-color;
         background  : $background;
     }
-    &:focus, &:active {
-        color: $active-color;
-        border:1px solid $active-color;
+
+    &:focus,
+    &:active {
+        color     : $active-color;
+        border    : 1px solid $active-color;
         background: $background;
-        outline: none;
+        outline   : none;
+    }
+
+    @each $type,
+    $color in (primary: $primary, success:$success, info:$info, warning:$warning, danger:$danger) {
+        &-#{$type} {
+            background: #{$color};
+            border    : 1px solid #{$color};
+            color     : #fff;
+
+        }
+    }
+
+    @each $type,
+    $color in (primary: $primary-hover, success:$success-hover, info:$info-hover, warning:$warning-hover, danger:$danger-hover) {
+        &-#{$type}:hover {
+            background: #{$color};
+            border    : 1px solid #{$color};
+            color     : #fff;
+        }
+    }
+
+    @each $type,
+    $color in (primary: $primary-active, success:$success-active, info:$info-active, warning:$warning-active, danger:$danger-active) {
+        &-#{$type}:focus {
+            background: #{$color};
+            border    : 1px solid #{$color};
+            color     : #fff;
+        }
+    }
+
+    .icon {
+        font-size: 16px;
+    }
+
+    .icon+span {
+        margin     : 0px;
+        margin-left: 4px;
+    }
+
+
+
+    &-left {
+        i {
+            order: 1;
+        }
+
+        span {
+            order: 2;
+        }
+    }
+
+    &-right {
+
+        span {
+            order: 1;
+        }
+
+        i {
+            order: 2;
+        }
+
+        .icon+span {
+            margin      : 0px;
+            margin-right: 4px;
+        }
     }
 }
