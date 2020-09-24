@@ -1,0 +1,34 @@
+@import '../../styles/var.scss';
+$height      : 42px;
+$font-size   :16px;
+$color       :#606266;
+$border-color:#dcdfe6;
+$background  :#ecf5ff;
+$active-color:#3a8ee6;
+
+.dy-btn {
+    border-radius      : $border-radius;
+    border             : 1px solid $border-color;
+    height             : $height;
+    font-size          : $font-size;
+    cursor             : pointer;
+    letter-spacing     : 0.09em;
+    outline            : none;
+    transition         : 0.2s;
+    // 静止元素的文字被选中
+    -moz-user-select   : none;
+    -webkit-user-select: none;
+    -ms-user-select    : none;
+    user-select        : none;
+
+    &:hover {
+        border-color: $border-color;
+        background  : $background;
+    }
+    &:focus, &:active {
+        color: $active-color;
+        border:1px solid $active-color;
+        background: $background;
+        outline: none;
+    }
+}
