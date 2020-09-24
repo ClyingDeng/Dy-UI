@@ -26,7 +26,6 @@
       "spaces",
       2
     ],
-    "member-access":false,
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
