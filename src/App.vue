@@ -11,6 +11,10 @@
     <dy-button type="warning" icon="play" icon-position="right"
       >后面图标按钮</dy-button
     >
+    <!-- 加载中 -->
+     <dy-button type="danger" disabled>禁用</dy-button>
+     <!-- 朴素 -->
+      <dy-button type="primary" plain>朴素按钮</dy-button>
   </div>
 </template>
 

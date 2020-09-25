@@ -43,9 +43,32 @@ $active-color:#3a8ee6;
             background: #{$color};
             border    : 1px solid #{$color};
             color     : #fff;
+        }
+    }
+
+
+    @each $type,
+    $color in (primary: $primary-disable, success:$success-disable, info:$info-disable, warning:$warning-disable, danger:$danger-disable) {
+        &-#{$type} {
+            &[disabled] {
+                cursor    : not-allowed;
+                background: #{$color};
+                border    : 1px solid #{$color};
+                color     : #fff;
+            }
+
+            &[disabled]:hover {
+                cursor    : not-allowed;
+                background: #{$color};
+                border    : 1px solid #{$color};
+                color     : #fff;
+            }
+
 
         }
     }
+  
+
 
     @each $type,
     $color in (primary: $primary-hover, success:$success-hover, info:$info-hover, warning:$warning-hover, danger:$danger-hover) {
@@ -101,4 +124,5 @@ $active-color:#3a8ee6;
             margin-right: 4px;
         }
     }
+
 }
