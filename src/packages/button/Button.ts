@@ -1,4 +1,4 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class DyButton extends Vue {
   @Prop({
@@ -29,6 +29,11 @@ export default class DyButton extends Vue {
     },
   })
   private readonly iconPosition!: string;
+  @Prop(Boolean)
+  private disabled!: boolean; // 禁用
+  @Prop(Boolean)
+  private plain!: boolean; // 朴素
+  // 禁用
   get btnClass() {
     let classes = [];
     if (this.type) {
@@ -38,5 +43,11 @@ export default class DyButton extends Vue {
       classes.push(`dy-btn-${this.iconPosition}`);
     }
     return classes;
+  }
+  // tslint:disable-next-line: no-empty
+  @Emit('click') private emitClickEvent(event: MouseEvent) {}
+  private onClickBtn(event: MouseEvent) {
+    // tslint:disable-next-line: no-unused-expression
+    this.disabled ? '' : this.emitClickEvent(event);
   }
 }
