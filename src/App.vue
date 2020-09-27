@@ -15,6 +15,11 @@
      <dy-button type="danger" disabled>禁用</dy-button>
      <!-- 朴素 -->
       <dy-button type="primary" plain>朴素按钮</dy-button>
+      <!-- 按钮组 -->
+      <dy-button-group>
+        <dy-button type="primary" icon="arrow-left" icon-position="left">上一页</dy-button>
+        <dy-button type="primary" icon="arrow-right" icon-position="right">下一页</dy-button>
+      </dy-button-group>
   </div>
 </template>
 

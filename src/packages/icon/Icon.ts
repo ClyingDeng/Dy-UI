@@ -1,7 +1,9 @@
 import '../../styles/icon.js';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({
+  name: 'dy-icon',
+})
 export default class DyIcon extends Vue {
   @Prop({
     required: true,
