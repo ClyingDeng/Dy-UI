@@ -1,5 +1,7 @@
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
-@Component
+@Component({
+  name: 'dy-button',
+})
 export default class DyButton extends Vue {
   @Prop({
     default: '',

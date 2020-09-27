@@ -1,11 +1,12 @@
 // 所有组件的入口
 
-import Button from './button/Button.vue';
-import Icon from './icon/Icon.vue';
-
+import DyButton from './button/Button.vue';
+import DyIcon from './icon/Icon.vue';
+import DyButtonGroup from './buttonGroup/ButtonGroup.vue';
 const install = (Vue: any) => {
-    Vue.component(Button.name, Button);
-    Vue.component(Icon.name, Icon);
+  Vue.component(DyButton.name, DyButton);
+  Vue.component(DyIcon.name, DyIcon);
+  Vue.component(DyButtonGroup.name, DyButtonGroup);
 };
 // 有可能组件会通过script标签的方式引入
 // <script src="dy-ui"></script>
