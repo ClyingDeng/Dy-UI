@@ -10,6 +10,7 @@
     "test": "karma start",
     "lib": "vue-cli-service build --target lib --name dy-ui ./src/packages/index.ts"
   },
+  "main": "./dist/dy-ui.umd.min.js",
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "core-js": "^3.6.5",
