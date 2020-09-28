@@ -1,34 +1,19 @@
 # dy-ui
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+## QuickStart
+```bash
+npm install dy-ui
 ```
 
-### Compiles and minifies for production
+### usage
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
+import dyUi from 'dy-ui'
+import 'dy-ui/dist/dy-ui.css'
+Vue.use(dyUi)
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Author
 
-### Run your unit tests
-```
-npm run test:unit
-```
+Clying
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+

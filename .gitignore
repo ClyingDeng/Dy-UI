@@ -23,6 +23,5 @@ pnpm-debug.log*
 *.sw?
 
 yarn.lock
-.prettierrc.json
 LICENSE
 README.md

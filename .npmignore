@@ -1,0 +1,10 @@
+/.git/
+/.vscode/
+/node_modules/
+.gitignore
+.npmignore
+tslint.json
+tsconfig.json
+src
+public
+tests
