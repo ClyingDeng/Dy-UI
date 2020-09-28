@@ -1,9 +1,3 @@
-/*
- * @description: 引用dyUi
- * @param:
- * @return:
- * @author: Clying
- */
 import Vue from 'vue';
 import App from './App.vue';
 
