@@ -7,7 +7,7 @@ npm install dy-ui
 
 ### usage
 ```
-import dyUi from 'dy-ui'
+import dyUi from 'dying-ui'
 import 'dy-ui/dist/dy-ui.css'
 Vue.use(dyUi)
 ```
