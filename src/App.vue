@@ -5,10 +5,10 @@
     <dy-button type="success">默认按钮</dy-button>
     <dy-button type="primary">默认按钮</dy-button>
     <dy-button type="warning">默认按钮</dy-button>
-    <dy-icon icon="play"></dy-icon>
+    <dy-icon icon="dy-icon-play"></dy-icon>
     <!-- 带icon的按钮 -->
-    <dy-button type="warning" icon="play">默认按钮</dy-button>
-    <dy-button type="warning" icon="play" icon-position="right"
+    <dy-button type="warning" icon="dy-icon-play">默认按钮</dy-button>
+    <dy-button type="warning" icon="dy-icon-play" icon-position="right"
       >后面图标按钮</dy-button
     >
     <!-- 加载中 -->
@@ -17,8 +17,8 @@
       <dy-button type="primary" plain>朴素按钮</dy-button>
       <!-- 按钮组 -->
       <dy-button-group>
-        <dy-button type="primary" icon="arrow-left" icon-position="left">上一页</dy-button>
-        <dy-button type="primary" icon="arrow-right" icon-position="right">下一页</dy-button>
+        <dy-button type="primary" icon="dy-icon-arrow-left" icon-position="left">上一页</dy-button>
+        <dy-button type="primary" icon="dy-icon-arrow-right" icon-position="right">下一页</dy-button>
       </dy-button-group>
   </div>
 </template>

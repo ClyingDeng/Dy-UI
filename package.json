@@ -1,5 +1,5 @@
 {
-  "name": "clying-ui",
+  "name": "dying-ui",
   "version": "0.1.1",
   "private": false,
   "scripts": {
@@ -8,9 +8,9 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test": "karma start",
-    "lib": "vue-cli-service build --target lib --name clying-ui ./src/packages/index.ts"
+    "lib": "vue-cli-service build --target lib --name dying-ui ./src/packages/index.ts"
   },
-  "main": "./dist/clying-ui.common.js",
+  "main": "./dist/dying-ui.common.js",
   "typings": "",
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
