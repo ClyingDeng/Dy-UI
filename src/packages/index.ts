@@ -9,7 +9,7 @@ const install = (Vue: any) => {
   Vue.component(DyButton.name, DyButton);
   Vue.component(DyIcon.name, DyIcon);
   Vue.component(DyButtonGroup.name, DyButtonGroup);
-  console.log(DyCol.name, DyButtonGroup.name);
+  console.log(DyCol.name, DyRow);
   Vue.component(DyCol.name, DyCol);
   Vue.component(DyRow.name, DyRow);
 };
