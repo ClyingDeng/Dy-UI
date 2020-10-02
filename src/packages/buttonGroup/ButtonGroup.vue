@@ -4,4 +4,4 @@
   </div>
 </template>
 <style lang="scss" scoped src='./ButtonGroup.scss'></style>
-<script src="./ButtonGroup.ts"></script>
+<script src="./ButtonGroup.ts" scoped></script>

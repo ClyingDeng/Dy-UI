@@ -7,5 +7,5 @@
   </button>
 </template>
 
-<script lang="ts" src="./Button.ts"></script>
+<script lang="ts" src="./Button.ts" scoped></script>
 <style lang="scss" src="./Button.scss" scoped></style>
