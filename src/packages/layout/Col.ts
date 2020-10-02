@@ -1,4 +1,4 @@
-import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 declare module 'vue/types/vue' {
     interface Vue {
         [key: string]: any;
@@ -7,7 +7,7 @@ declare module 'vue/types/vue' {
 @Component({
   name: 'DyCol',
 })
-export default class DyButton extends Vue {
+export default class DyCol extends Vue {
   @Prop(Number) private readonly span!: number;
   @Prop(Number) private readonly offset!: number;
   @Prop([Number, Object])

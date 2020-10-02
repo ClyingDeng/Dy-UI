@@ -1,8 +1,8 @@
-import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component({
   name: 'DyRow',
 })
-export default class DyButton extends Vue {
+export default class DyRow extends Vue {
   @Prop({ default: 0 }) private gutter!: number;
   @Prop({ validator(type) {
       if (type && !['start', 'end', 'center', 'space-around', 'space-between'].includes(type)) {
