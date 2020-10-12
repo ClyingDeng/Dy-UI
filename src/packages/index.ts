@@ -1,7 +1,7 @@
 // 所有组件的入口
 import DyButton from './button/Button.vue';
 import DyIcon from './icon/Icon.vue';
-import DyButtonGroup from './buttonGroup/ButtonGroup.vue';
+import DyButtonGroup from './button/buttonGroup/ButtonGroup.vue';
 import DyCol from './layout/Col.vue';
 import DyRow from './layout/Row.vue';
 // tslint:disable-next-line: no-shadowed-variable
@@ -9,7 +9,7 @@ const install = (Vue: any) => {
   Vue.component(DyButton.name, DyButton);
   Vue.component(DyIcon.name, DyIcon);
   Vue.component(DyButtonGroup.name, DyButtonGroup);
-  console.log(DyCol.name, DyRow);
+  // console.log(DyCol.name, DyRow);
   Vue.component(DyCol.name, DyCol);
   Vue.component(DyRow.name, DyRow);
 };

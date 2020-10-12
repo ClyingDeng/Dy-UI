@@ -18,7 +18,7 @@ export default class DyRow extends Vue {
         style = {
             ...style,
             marginLeft: -this.gutter / 2 + 'px',
-            marginRight: -this.gutter / 2 + 'px',
+            marginRight: -this.gutter / 2 + 'px', // 通过外层的margin 负值 解决内部padding的问题
         };
       }
       if (this.justify) {
