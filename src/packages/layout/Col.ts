@@ -8,8 +8,8 @@ declare module 'vue/types/vue' {
   name: 'DyCol',
 })
 export default class DyCol extends Vue {
-  @Prop(Number) private readonly span!: number;
-  @Prop(Number) private readonly offset!: number;
+  @Prop({ default: 24}) private readonly span!: number;
+  @Prop({ default: 0}) private readonly offset!: number;
   @Prop([Number, Object])
   private xs!: number | object;
   @Prop([Number, Object])
@@ -28,7 +28,7 @@ export default class DyCol extends Vue {
       classes.push(`dy-col-offset-${this.offset}`);
     }
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach((type: string) => {
-      console.log(this, type);
+      // console.log(this, type);
       if (typeof this[type] === 'object') {
         let { span, offset } = this[type];
         // tslint:disable-next-line: no-unused-expression

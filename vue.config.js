@@ -20,6 +20,8 @@ module.exports = {
   },
   publicPath: '/',
   devServer: {
+    hot:true,
+    open : true,
     port: 8888,
     https: false
   }

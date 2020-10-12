@@ -24,6 +24,46 @@
       <dy-row>
         <dy-col :span="24"><div class="grid-content bg-purple-dark"></div></dy-col>
       </dy-row>
+      <dy-row>
+        <dy-col :span="12"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="12"><div class="grid-content bg-purple-light"></div></dy-col>
+      </dy-row>
+      <dy-row>
+        <dy-col :span="8"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="8"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="8"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
+      <dy-row>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+      </dy-row>
+      <dy-row>
+        <dy-col :span="4"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="4"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="4"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="4"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="4"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="4"><div class="grid-content bg-purple-light"></div></dy-col>
+      </dy-row>
+      <dy-row justify="center">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+      </dy-row>
+      <dy-row gutter="20">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+      </dy-row>
+      <dy-row :gutter="10">
+        <dy-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light">hh</div></dy-col>
+        <dy-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
   </div>
 </template>
 
@@ -47,6 +87,12 @@ export default class App extends Vue {}
   }
     .bg-purple-dark {
     background: #99a9bf;
+  }
+    .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
   }
 }
 </style>
