@@ -49,8 +49,8 @@
       </dy-row>
       <dy-row justify="center">
         <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
-        <dy-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></dy-col>
-        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6" :offset="2"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="gri -content bg-purple-light"></div></dy-col>
       </dy-row>
       <dy-row gutter="20">
         <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
@@ -58,6 +58,32 @@
         <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
         <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
       </dy-row>
+      <dy-row class="row-bg" justify="start">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
+      <dy-row class="row-bg" justify="center">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
+      <dy-row class="row-bg" justify="end">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
+      <dy-row class="row-bg" justify="space-between">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
+      <dy-row class="row-bg" justify="space-around">
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple-light"></div></dy-col>
+        <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
+      </dy-row>
+
       <dy-row :gutter="10">
         <dy-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light">hh</div></dy-col>
         <dy-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></dy-col>
@@ -93,6 +119,10 @@ export default class App extends Vue {}
   }
   .bg-purple-light {
     background: #e5e9f2;
+  }
+   .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
   }
 }
 </style>
