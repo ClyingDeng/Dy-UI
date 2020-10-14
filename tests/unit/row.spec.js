@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Row from '@/packages/layout/row.vue';
+import Row from '@/packages/layout/Row.vue';
 import Col from '@/packages/layout/Col.vue';
 import { expect } from 'chai';
 
@@ -24,7 +24,7 @@ describe('Row.vue',() => {
         let col = wrapper.vm.$el.querySelector('.dy-col');
         expect(getComputedStyle(col).paddingLeft).to.eq('10px');
         expect(getComputedStyle(col).paddingRight).to.eq('10px');
-    })
+    });
 
     it('2. 测试justify属性', async () => {
         let wrapper = shallowMount(Row, {
@@ -36,10 +36,22 @@ describe('Row.vue',() => {
                 default:'<dy-col></dy-col>'
             },
             propsData:{
-                justify:'center'
+                justify:'start'
             }
-        })
-        expect(getComputedStyle(wrapper.vm.$el).justifyContent).to.eq('flex-start');
-        
-    })
+        });
+        let col = wrapper.vm.$el;
+        expect(getComputedStyle(col).justifyContent).to.eq('flex-start');
+        wrapper.setProps({justify: 'end'})
+        await wrapper.vm.$nextTick();
+        expect(getComputedStyle(col).justifyContent).to.eq('flex-end');
+        wrapper.setProps({justify: 'center'})
+        await wrapper.vm.$nextTick();
+        expect(getComputedStyle(col).justifyContent).to.eq('center');
+        wrapper.setProps({justify: 'space-around'})
+        await wrapper.vm.$nextTick();
+        expect(getComputedStyle(col).justifyContent).to.eq('space-around');
+        wrapper.setProps({justify: 'space-between'})
+        await wrapper.vm.$nextTick();
+        expect(getComputedStyle(col).justifyContent).to.eq('space-between');
+    });
 })
