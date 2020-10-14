@@ -45,10 +45,10 @@ describe('button', () => {
                 'dy-icon': Icon// 替换功能
             },
             propsData: {
-                icon: 'play'
+                icon: 'dy-icon-play'
             }
         });
-        expect(wrapper.find('.dy-icon-play').exists()).to.eq(true);
+        expect(wrapper.vm.$el.querySelector('.dy-icon-play')).to.exist;
     });
     it('测试icon位置能否正常调换', () => {
         const wrapper = shallowMount(Button, {
@@ -60,7 +60,7 @@ describe('button', () => {
                 default: 'dy-ui'
             },
             propsData: {
-                icon: 'edit',
+                icon: 'dy-icon-play',
                 iconPosition: 'left'
             }
         });
