@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Col from '@/packages/layout/Col.vue';
+import Col from '@/packages/layout/col/Col.vue';
 import { expect } from 'chai';
 
 describe('Col.vue',() => {
