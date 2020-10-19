@@ -10,6 +10,8 @@ import DyContainer from './container/container/Container.vue';
 import DyFooter from './container/footer/Footer.vue';
 import DyHeader from './container/header/Header.vue';
 import DyMain from './container/main/Main.vue';
+
+import DyInput from './input/Input.vue';
 // tslint:disable-next-line: no-shadowed-variable
 const install = (Vue: any) => {
   Vue.component(DyButton.name, DyButton);
@@ -23,6 +25,9 @@ const install = (Vue: any) => {
   Vue.component(DyFooter.name, DyFooter);
   Vue.component(DyHeader.name, DyHeader);
   Vue.component(DyMain.name, DyMain);
+
+  Vue.component(DyInput.name, DyInput);
+
 };
 // 有可能组件会通过script标签的方式引入
 // <script src="dy-ui"></script>
