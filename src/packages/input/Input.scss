@@ -1,0 +1,38 @@
+.dy-input {
+    display : inline-flex;
+    position: relative;
+
+    input {
+        padding      : 8px;
+        width        : 150px;
+        height       : 42px;
+        border-radius: $border-radius;
+        border       : 1px solid $border-color;
+
+        &:focus {
+            border    : 1px solid $primary;
+            outline   : none;
+            box-shadow: inset -1px $primary, inset 1px 1px 1px $primary;
+        }
+
+        &[disabled] {
+            cursor          : not-allowed;
+            background-color: #eeeeee;
+        }
+    }
+}
+
+.dy-input-suffix-icon {
+    input{
+        padding-right: 25px;
+    }
+    .dy-icon {
+        right   : 8px;
+        top     : 13px;
+        width   : calc(42 - 13) / 2;
+        height   : calc(42 - 13) / 2;
+        position: absolute;
+        cursor  : pointer;
+    }
+
+}
