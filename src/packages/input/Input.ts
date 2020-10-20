@@ -1,4 +1,4 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
   name: 'DyInput',
@@ -9,7 +9,7 @@ export default class DyInput extends Vue {
   })
   private type!: string;
   @Prop({
-      default: '',
+    default: '',
   })
   private value!: string | number;
   @Prop(String) private placeholder!: string;
@@ -22,12 +22,49 @@ export default class DyInput extends Vue {
     default: false,
   })
   private clearable!: boolean;
+  @Prop({
+    default: false,
+  })
+  private showPassword!: boolean;
+  @Prop({
+    default: '',
+  })
+  private prefixIcon!: string;
+  @Prop({
+    default: '',
+  })
+  private suffixIcon!: string;
 
+  private passwordVisible: boolean = false;
+  private showIcon: string = 'dy-icon-view-off';
   get inputClass() {
-      let classes = [];
-      if (this.clearable) {
-          classes.push(`dy-input-suffix-icon`);
-      }
-      return classes;
+    let classes = [];
+    if (this.clearable || this.showPassword || this.suffixIcon) {
+      classes.push(`dy-input-suffix-icon`);
+    }
+    if (this.$slots.suffix) {
+      classes.push(`dy-input-suffix-icon`);
+    }
+    if (this.$slots.prefix) {
+      classes.push(`dy-input-prefix-icon`);
+    }
+    if (this.prefixIcon) {
+      classes.push(`dy-input-prefix-icon`);
+    }
+    return classes;
   }
+  private changeStatus() {
+    this.passwordVisible = !this.passwordVisible;
+    console.log(this.passwordVisible);
+    this.$nextTick(() => {
+      (this.$refs.input as HTMLElement).focus();
+      this.showIcon = this.passwordVisible
+        ? 'dy-icon-view'
+        : 'dy-icon-view-off';
+    });
+  }
+  // private getSuffixVisible() {
+  //   console.log(this.$slots.suffix);
+  //   return this.$slots.suffix ? true : false;
+  // }
 }

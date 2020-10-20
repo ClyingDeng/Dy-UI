@@ -151,7 +151,7 @@
       <dy-footer>footer</dy-footer>
     </dy-container>
 
-    <dy-input
+    <!-- <dy-input
       type="text"
       v-model="value"
       placeholder="请输入内容"
@@ -170,7 +170,29 @@
       name="username"
       :clearable="true"
     ></dy-input>
-    <!-- <dy-input v-model="value" disabled placeholder="请输入内容" name="username"></dy-input> -->
+    <dy-input v-model="value" disabled placeholder="请输入内容" name="username"></dy-input> -->
+    <dy-input
+      type="password"
+      v-model="value"
+      showPassword="true"
+      placeholder="请输入内容"
+      name="username"
+    ></dy-input>
+    <dy-input
+      placeholder="请选择日期"
+      prefix-icon="dy-icon-order"
+      v-model="value"
+    ></dy-input>
+    <dy-input
+      v-model="value"
+    >
+    <i slot="suffix" class="dy-icon dy-icon-order"></i>
+    </dy-input>
+    <dy-input
+      v-model="value"
+    >
+    <i slot="prefix" class="dy-icon dy-icon-order"></i>
+    </dy-input>
   </div>
 </template>
 
@@ -180,7 +202,6 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class App extends Vue {
   private value: string = '';
-  // private 
 }
 </script>
 
