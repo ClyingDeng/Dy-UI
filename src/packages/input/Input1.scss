@@ -1,13 +1,11 @@
-$height: 42px;
-$width: 150px;
 .dy-input {
     display : inline-flex;
     position: relative;
 
     input {
         padding      : 8px;
-        width        : $width;
-        height       : $height;
+        width        : 150px;
+        height       : 42px;
         border-radius: $border-radius;
         border       : 1px solid $border-color;
 
@@ -32,6 +30,8 @@ $width: 150px;
     .dy-icon {
         right   : 8px;
         top     : 13px;
+        // width   : calc((42px - 13px) / 2);
+        // height  : (42px - 13px) / 2;
         position: absolute;
         cursor  : pointer;
     }
@@ -46,6 +46,8 @@ $width: 150px;
     .dy-icon {
         left    : 8px;
         top     : 13px;
+        // width   : calc(42 - 13) / 2;
+        // height  : calc(42 - 13) / 2;
         position: absolute;
         cursor  : pointer;
     }
