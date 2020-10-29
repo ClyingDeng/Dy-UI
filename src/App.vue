@@ -193,6 +193,23 @@
     >
     <i slot="prefix" class="dy-icon dy-icon-order"></i>
     </dy-input>
+    <dy-upload
+      name="avatar"
+      action="http://localhost:3000/upload"
+      :file-list="fileList"
+      multiple
+      :limit="3"
+      accept="image/jpeg"
+      :beforeUpload="beforeUpload"
+      :on-exceed="handleExceed"
+      :on-change="handleChange"
+      :on-success="handleSuccess"
+      :on-error="handleError"
+      :on-progress="handleProgress"
+    >
+      <dy-button icon="dy-icon-image">点击上传</dy-button>
+      <div slot="tip">只能上传jpg/png文件，且不能超过500kb</div>
+    </dy-upload>
   </div>
 </template>
 
@@ -202,6 +219,20 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class App extends Vue {
   private value: string = '';
+  private fileList: object[] = [{ url: 'xxx', name: 'dying' }];
+  private handleExceed(files: any, fileList: any) {
+    console.log('用户传递上限！');
+  }
+  private handleChange(file: any) {
+    console.log(file, '当前更新了！');
+  }
+  private beforeUpload() {
+    return false;
+  }
+  // tslint:disable
+  private handleSuccess() {}
+  private handleError() {}
+  private handleProgress() {}
 }
 </script>
 
