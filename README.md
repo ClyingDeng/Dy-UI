@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/dying-ui.svg)](https://badge.fury.io/js/dying-ui)
 ## QuickStart
 ```bash
-npm install dying-ui
+npm install dy-ui
 ```
 
 ### usage
@@ -16,7 +16,4 @@ Vue.use(dyUi)
 
 Clying
 
-<!-- ### GitHub -->
-
-<!-- <https://github.com/ClyingDeng/Dy-UI> -->
 
