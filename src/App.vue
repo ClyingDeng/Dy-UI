@@ -183,15 +183,11 @@
       prefix-icon="dy-icon-order"
       v-model="value"
     ></dy-input>
-    <dy-input
-      v-model="value"
-    >
-    <i slot="suffix" class="dy-icon dy-icon-order"></i>
+    <dy-input v-model="value">
+      <i slot="suffix" class="dy-icon dy-icon-order"></i>
     </dy-input>
-    <dy-input
-      v-model="value"
-    >
-    <i slot="prefix" class="dy-icon dy-icon-order"></i>
+    <dy-input v-model="value">
+      <i slot="prefix" class="dy-icon dy-icon-order"></i>
     </dy-input>
     <dy-upload
       name="avatar"
@@ -226,8 +222,16 @@ export default class App extends Vue {
   private handleChange(file: any) {
     console.log(file, '当前更新了！');
   }
-  private beforeUpload() {
-    return false;
+  private beforeUpload(rawFile: any) {
+    let limitSize = rawFile.size / 1024 > 500;
+    if (limitSize) {
+      console.log(rawFile.size, '当前文件超过了500k');
+      return false;
+    } else if (!rawFile.name.endsWith('.jpg')) {
+      console.log('文件类型不对！');
+      return false;
+    }
+    return true;
   }
   // tslint:disable
   private handleSuccess() {}

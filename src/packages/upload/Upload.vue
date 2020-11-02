@@ -7,7 +7,14 @@
     <div>
       <slot name="tip"></slot>
     </div>
-    {{files}}
+    <ul>
+      <li v-for="file in files" :key="file.uid">
+        <div class="list-item">
+          <dy-icon icon="dy-icon-image"></dy-icon>
+           <img :src="file.url" alt="">{{file.name}}
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 <script lang="ts" src="./Upload.ts" scoped></script>
