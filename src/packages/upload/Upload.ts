@@ -7,6 +7,7 @@ export default class DyUpload extends Vue {
   private tempIndex: number = 1;
   private files: fileType[] = []; // 存储要展示的列表
   private reqs: any = {};
+  private focusing: boolean = false;
   @Prop({ default: 'file' })
   private name!: string;
   @Prop({ required: true, default: '' }) private action!: string;

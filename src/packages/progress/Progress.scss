@@ -36,35 +36,8 @@
   display       : inline-block;
   vertical-align: middle;
   margin-left   : 10px;
-  line-height   : 1;
 }
 
 // .el-progress--line{
 //   color: $success;
 // }
-@mixin type($success) {
-  .dy-progress-bar_inner {
-    background: $success;
-  }
-
-  .dy-progress_text {
-    i {
-      color: $success;
-    }
-  }
-}
-
-.is-success {
-  color: $success;
-  @include type($success);
-}
-
-.is-warning {
-  color: $warning;
-  @include type($warning);
-}
-
-.is-exception {
-  color: $danger;
-  @include type($danger);
-}
