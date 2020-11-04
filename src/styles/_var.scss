@@ -1,5 +1,5 @@
-$border-radius: 4px;
-$border-color:#dcdfe6;
+$border-radius    : 4px;
+$border-color     :#dcdfe6;
 $progress-bg-color:#dcdfe6;
 
 $primary :#409eff;
@@ -42,13 +42,11 @@ $--sm: 768px !default;
 $--md: 992px !default;
 $--lg: 1200px !default;
 $--xl: 1920px !default;
-$map: (
-  "xs": ( max-width: $--sm - 1),
-  "sm": (min-width: $--sm ),
+$map : ("xs": (max-width: $--sm - 1),
+  "sm": (min-width: $--sm),
   "md": (min-width: $--md),
-  "lg": ( min-width: $--lg),
-  "xl": ( min-width: $--xl)
-);
+  "lg": (min-width: $--lg),
+  "xl": (min-width: $--xl));
 
 
 
@@ -58,10 +56,44 @@ $map: (
   }
 }
 
+// @mixin when($state) {
+//   @at-root {
+//     &.#{$state-prefix + $state} {
+//       @content;
+//     }
+//   }
+// }
 
-*{
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-    box-sizing: border-box;
+* {
+  padding   : 0;
+  margin    : 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@mixin type($success) {
+  .dy-progress-bar_inner {
+    background: $success;
+  }
+
+  .dy-progress_text {
+    i {
+      color: $success;
+    }
+  }
+}
+
+.is-success {
+  color: $success;
+  @include type($success);
+}
+
+.is-warning {
+  color: $warning;
+  @include type($warning);
+}
+
+.is-exception {
+  color: $danger;
+  @include type($danger);
 }

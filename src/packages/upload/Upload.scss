@@ -1,8 +1,83 @@
-.dy-upload{
-    .dy-upload-btn{
+.dy-upload {
+    width     : 360px;
+    text-align: start;
+
+    .dy-upload-btn {
         display: inline-block;
+
     }
-    .input{
+
+    .input {
         display: none;
+    }
+
+    .dy-upload__tip {
+        font-size : 12px;
+        margin-top: 7px;
+
+    }
+
+    .dy-upload-list__item:hover,
+    .dy-upload-list__item:focus {
+        cursor    : pointer;
+        background: #F5F7FA;
+
+        .dy-upload-list__item-name {
+            color: $primary;
+        }
+
+        .dy-icon-close {
+            color: #606266;
+        }
+    }
+
+    .dy-upload-list__item {
+        transition   : all .3s;
+        white-space  : nowrap;
+        position     : relative;
+        box-sizing   : border-box;
+        border-radius: 4px;
+        width        : 100%;
+        line-height  : 1.8;
+
+        .dy-upload-list__item-name {
+            overflow     : hidden;
+            display      : block;
+            padding-left : 4px;
+            text-overflow: ellipsis;
+            margin-right : 40px;
+            color        : #606266;
+            line-height  : 1.8;
+        }
+
+        .dy-upload-list__item-status-label {
+            display    : block;
+            position   : absolute;
+            right      : 5px;
+            top        : 0;
+            line-height: inherit;
+
+            .dy-icon-close {
+                display: none;
+            }
+
+            .dy-icon-check {
+                display: inline-block;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            .dy-icon-check {
+                display: none;
+            }
+
+            .dy-icon-close {
+                display: inline-block;
+            }
+        }
+
+
+
     }
 }

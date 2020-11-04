@@ -7,7 +7,7 @@ export default class DyProgress extends Vue {
   private percentage!: number;
   @Prop({ default: 6 }) private strokeWidth!: number;
   // tslint:disable-next-line: ban-types
-  @Prop() private color!: string | Function | object[];
+  @Prop({default: ''}) private color!: string | Function | colorArrary[];
   @Prop({validator: (val) => ['success', 'exception', 'warning'].indexOf(val) > -1}) private status!: string;
   get barStyle() {
     let styles: any = {};
@@ -42,6 +42,9 @@ export default class DyProgress extends Vue {
     }
     return this.status === 'success' ? 'dy-icon-check' : 'dy-icon-close';
   }
+  private mounted() {
+    console.log(this.status);
+  }
   private getCurrentColor(per: number) {
     if (typeof this.color === 'function') {
       return this.color(per);
@@ -64,7 +67,7 @@ export default class DyProgress extends Vue {
   }
   private getColorArrary() {
     let color: any = this.color;
-    let span = 100 / color.length;
+    let span = 100 / this.color.length;
     return color.map((c: colorArrary, i: number) =>
       typeof c === 'string' ? { color: c, progress: (i + 1) * span } : c,
     );
