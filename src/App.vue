@@ -206,6 +206,10 @@
       <dy-button icon="dy-icon-image">点击上传</dy-button>
       <div slot="tip">只能上传jpg/png文件，且不能超过500kb</div>
     </dy-upload>
+    <dy-progress percentage="70" status="exception"></dy-progress>
+    <dy-progress percentage="70" :color="customColor1"></dy-progress>
+    <dy-progress percentage="70" :color="customColor2"></dy-progress>
+    <dy-progress percentage="30" :color="customColorMethod"></dy-progress>
   </div>
 </template>
 
@@ -215,7 +219,24 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class App extends Vue {
   private value: string = '';
-  private fileList: object[] = [{ url: 'xxx', name: 'dying' }];
+  private fileList: object[] = [];
+  private customColor1 = '#909399';
+  private customColor2 = [
+    { color: '#f56c6c', percentage: 20 },
+    { color: '#e6a23c', percentage: 40 },
+    { color: '#5cb87a', percentage: 60 },
+    { color: '#1989fa', percentage: 80 },
+    { color: '#6f7ad3', percentage: 100 },
+  ];
+  private customColorMethod(per: number) {
+    if (per < 30) {
+      return '#909399';
+    } else if (per < 70) {
+      return '#e6a23c';
+    } else {
+      return '#67c23a';
+    }
+  }
   private handleExceed(files: any, fileList: any) {
     console.log('用户传递上限！');
   }

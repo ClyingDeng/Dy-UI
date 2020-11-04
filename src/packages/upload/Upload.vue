@@ -11,7 +11,9 @@
       <li v-for="file in files" :key="file.uid">
         <div class="list-item">
           <dy-icon icon="dy-icon-image"></dy-icon>
-           <img :src="file.url" alt="">{{file.name}}
+           {{file.name}} {{file.status}}
+           <dy-icon icon="dy-icon-close"></dy-icon>
+           <dy-progress :percentage="file.percentage"></dy-progress>
         </div>
       </li>
     </ul>

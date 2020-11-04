@@ -1,0 +1,70 @@
+.dy-progress {}
+
+.dy-progress-bar {
+  margin-right  : -55px;
+  box-sizing    : border-box;
+  padding-right : 50px;
+  width         : 100%;
+  display       : inline-block;
+  vertical-align: middle;
+
+  .dy-progress-bar_outer {
+    border-radius   : 100px;
+    background-color: $progress-bg-color;
+    overflow        : hidden;
+    position        : relative;
+    vertical-align  : middle;
+
+  }
+}
+
+.dy-progress-bar_inner {
+  position     : absolute;
+  left         : 0;
+  top          : 0;
+  height       : 100%;
+  text-align   : right;
+  border-radius: 100px;
+  line-height  : 1;
+  white-space  : nowrap;
+  transition   : width .6s ease;
+  background   : $primary;
+}
+
+.dy-progress_text {
+  color         : #606266;
+  display       : inline-block;
+  vertical-align: middle;
+  margin-left   : 10px;
+  line-height   : 1;
+}
+
+// .el-progress--line{
+//   color: $success;
+// }
+@mixin type($success) {
+  .dy-progress-bar_inner {
+    background: $success;
+  }
+
+  .dy-progress_text {
+    i {
+      color: $success;
+    }
+  }
+}
+
+.is-success {
+  color: $success;
+  @include type($success);
+}
+
+.is-warning {
+  color: $warning;
+  @include type($warning);
+}
+
+.is-exception {
+  color: $danger;
+  @include type($danger);
+}
