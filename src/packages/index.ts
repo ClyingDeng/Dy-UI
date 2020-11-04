@@ -13,23 +13,26 @@ import DyMain from './container/main/Main.vue';
 
 import DyInput from './input/Input.vue';
 import DyUpload from './upload/Upload.vue';
+import DyProgress from './progress/Progress.vue';
+
+let components = [
+  DyButton,
+  DyIcon,
+  DyButtonGroup,
+  DyCol,
+  DyRow,
+  DyAside,
+  DyContainer,
+  DyFooter,
+  DyHeader,
+  DyMain,
+  DyInput,
+  DyUpload,
+  DyProgress,
+];
 // tslint:disable-next-line: no-shadowed-variable
-const install = (Vue: any) => {
-  Vue.component(DyButton.name, DyButton);
-  Vue.component(DyIcon.name, DyIcon);
-  Vue.component(DyButtonGroup.name, DyButtonGroup);
-  Vue.component(DyCol.name, DyCol);
-  Vue.component(DyRow.name, DyRow);
-
-  Vue.component(DyAside.name, DyAside);
-  Vue.component(DyContainer.name, DyContainer);
-  Vue.component(DyFooter.name, DyFooter);
-  Vue.component(DyHeader.name, DyHeader);
-  Vue.component(DyMain.name, DyMain);
-
-  Vue.component(DyInput.name, DyInput);
-  Vue.component(DyUpload.name, DyUpload);
-
+const install = (Vue: { component: (arg0: any, arg1: any) => void; }) => {
+  components.forEach( (_: any) => Vue.component(_.name, _));
 };
 // 有可能组件会通过script标签的方式引入
 // <script src="dy-ui"></script>

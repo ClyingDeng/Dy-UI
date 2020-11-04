@@ -41,3 +41,7 @@ interface rawFile extends File {
 interface targetEvent extends HTMLInputElement{
   [x: string]: any;
 }
+interface colorArrary {
+  color: string;
+  percentage: number;
+}
