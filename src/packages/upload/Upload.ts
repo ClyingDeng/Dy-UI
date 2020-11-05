@@ -20,6 +20,7 @@ export default class DyUpload extends Vue {
   @Prop() private onSuccess!: Function;
   @Prop() private onError!: Function;
   @Prop() private onProgress!: Function;
+  @Prop() private onRemove!: Function;
   @Prop() private beforeUpload!: Function;
   @Prop({ default: () => [] }) private fileList!: object[];
   @Prop({ default: () => ajax1 }) httpRequest!: Function;
@@ -31,7 +32,6 @@ export default class DyUpload extends Vue {
       return _;
     });
     // console.log(this.files );
-    
   }
   private mounted() {
     // console.log(this.httpRequest, ajax1);
@@ -69,11 +69,14 @@ export default class DyUpload extends Vue {
     file!.percentage = ev.percent || 0;
     this.onProgress(ev, rawFile);
   }
+  // private handleRemove() {
+
+  // }
   private handleError(err: ProgressEvent, rawFile: rawFile) {
     console.log('失败', err, rawFile);
     let file = this.getFile(rawFile);
-    file!.status = "fail";
-    this.onError(err,rawFile);
+    file!.status = 'fail';
+    this.onError(err, rawFile);
     this.onChange(file);
     delete this.reqs[file!.uid]; //已失效的ajax 不需要后续在中断请求
   }
@@ -82,8 +85,9 @@ export default class DyUpload extends Vue {
     let file = this.getFile(rawFile);
     file!.status = 'success';
     this.onSuccess(res, rawFile);
-    this.onChange(file);  // 只要状态变了 都要调一遍onChange
+    this.onChange(file); // 只要状态变了 都要调一遍onChange
   }
+
   private post(rawFile: rawFile) {
     // 真正的上传逻辑
     // 调用httpRequest方法
@@ -150,5 +154,9 @@ export default class DyUpload extends Vue {
     // 多个文件如何上传
     this.uploadFiles(files);
     console.log('handleChange', files);
+  }
+  private remove1(file: fileType) {
+    console.log('111');
+    this.$emit('Remove', file);
   }
 }

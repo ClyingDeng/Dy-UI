@@ -38,7 +38,11 @@
         box-sizing   : border-box;
         border-radius: 4px;
         width        : 100%;
-        line-height  : 1.8;
+
+        // .list-item {
+        //     display      : flex;
+        //     align-content: center;
+        // }
 
         .dy-upload-list__item-name {
             overflow     : hidden;
@@ -51,11 +55,14 @@
         }
 
         .dy-upload-list__item-status-label {
-            display    : block;
-            position   : absolute;
-            right      : 5px;
-            top        : 0;
-            line-height: inherit;
+            display        : block;
+            position       : absolute;
+            right          : 5px;
+            top            : 0;
+            height         : 100%;
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
 
             .dy-icon-close {
                 display: none;

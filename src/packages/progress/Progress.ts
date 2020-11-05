@@ -42,9 +42,9 @@ export default class DyProgress extends Vue {
     }
     return this.status === 'success' ? 'dy-icon-check' : 'dy-icon-close';
   }
-  private mounted() {
-    console.log(this.status);
-  }
+  // private mounted() {
+  //   console.log(this.status);
+  // }
   private getCurrentColor(per: number) {
     if (typeof this.color === 'function') {
       return this.color(per);
