@@ -197,6 +197,8 @@
       :limit="3"
       accept="image/jpeg"
       :beforeUpload="beforeUpload"
+      :beforeRemove="beforeRemove"
+      :on-remove="handleRemove"
       :on-exceed="handleExceed"
       :on-change="handleChange"
       :on-success="handleSuccess"
@@ -263,10 +265,16 @@ export default class App extends Vue {
     }
     return true;
   }
+  private beforeRemove(file: any, fileList: any) {
+   this.$confirm(`确定移除 ${ file.name }？`);
+  }
   // tslint:disable
   private handleSuccess() {}
   private handleError() {}
   private handleProgress() {}
+  private handleRemove(file: any, fileList: any) {
+     console.log(file, fileList);
+  }
 }
 </script>
 

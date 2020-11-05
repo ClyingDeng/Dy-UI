@@ -32,8 +32,8 @@
             {{ file.name }} {{ file.status }}</a
           >
           <div class="dy-upload-list__item-status-label">
-            <dy-icon icon="dy-icon-close"></dy-icon>
-            <dy-icon icon="dy-icon-check"></dy-icon>
+            <i class="dy-icon dy-icon-close" @click="remove1(file)"></i>
+            <i class="dy-icon dy-icon-check"></i>
           </div>
           <dy-progress
             v-if="file.status === 'uploading'"
