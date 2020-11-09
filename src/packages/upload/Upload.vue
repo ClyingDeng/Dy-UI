@@ -32,7 +32,7 @@
             {{ file.name }} {{ file.status }}</a
           >
           <div class="dy-upload-list__item-status-label">
-            <i class="dy-icon dy-icon-close" @click="remove1(file)"></i>
+            <i class="dy-icon dy-icon-close" @click="handleRemove(file)"></i>
             <i class="dy-icon dy-icon-check"></i>
           </div>
           <dy-progress

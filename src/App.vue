@@ -225,8 +225,8 @@ export default class App extends Vue {
     {
       name: 'food2.jpeg',
       url:
-        'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-    },
+        'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+    }
   ];
   private customColor1 = '#909399';
   private customColor2: colorArrary[] = [
@@ -234,7 +234,7 @@ export default class App extends Vue {
     { color: '#e6a23c', percentage: 40 },
     { color: '#5cb87a', percentage: 60 },
     { color: '#1989fa', percentage: 80 },
-    { color: '#6f7ad3', percentage: 100 },
+    { color: '#6f7ad3', percentage: 100 }
   ];
   private mounted() {
     // console.log(typeof this.customColor2);
@@ -266,14 +266,14 @@ export default class App extends Vue {
     return true;
   }
   private beforeRemove(file: any, fileList: any) {
-   this.$confirm(`确定移除 ${ file.name }？`);
+    console.log('删除之前确认');
   }
   // tslint:disable
   private handleSuccess() {}
   private handleError() {}
   private handleProgress() {}
   private handleRemove(file: any, fileList: any) {
-     console.log(file, fileList);
+    console.log(file, fileList);
   }
 }
 </script>
