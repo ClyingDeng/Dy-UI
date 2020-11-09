@@ -1,3 +1,4 @@
+import { noop } from 'vue-class-component/lib/util';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import ajax1 from './ajax1';
 @Component({
@@ -22,6 +23,7 @@ export default class DyUpload extends Vue {
   @Prop() private onProgress!: Function;
   @Prop() private onRemove!: Function;
   @Prop() private beforeUpload!: Function;
+  @Prop() private beforeRemove!: Function;
   @Prop({ default: () => [] }) private fileList!: object[];
   @Prop({ default: () => ajax1 }) httpRequest!: Function;
   @Watch('fileList', { immediate: true })
@@ -68,6 +70,10 @@ export default class DyUpload extends Vue {
     file!.status = 'uploading';
     file!.percentage = ev.percent || 0;
     this.onProgress(ev, rawFile);
+  }
+  private abort(file: fileType) {
+    let el: any = this.$refs['input'];
+    el.abort(file);
   }
   // private handleRemove() {
 
@@ -155,8 +161,28 @@ export default class DyUpload extends Vue {
     this.uploadFiles(files);
     console.log('handleChange', files);
   }
-  private remove1(file: fileType) {
-    console.log('111');
-    this.$emit('Remove', file);
+  private handleRemove(file: fileType, raw: rawFile) {
+    if (raw) {
+      file != this.getFile(raw);
+    }
+    let doRemove = () => {
+      console.log(file, this.uploadFiles);
+      this.abort(file);
+      let fileList: any = this.uploadFiles;
+      fileList.splice(fileList.indexOf(file), 1);
+      this.onRemove(file, fileList);
+    };
+    if (!this.beforeRemove) {
+      doRemove();
+    } else if(typeof this.beforeRemove === 'function'){
+      const before = this.beforeRemove(file, this.uploadFiles);
+      if(before && before.then) {
+        before.then(() => {
+          doRemove();
+        }, noop);
+      } else if(before !== false) {
+        doRemove();
+      }
+    }
   }
 }
