@@ -75,9 +75,29 @@ export default class DyUpload extends Vue {
     let el: any = this.$refs['input'];
     el.abort(file);
   }
-  // private handleRemove() {
-
-  // }
+  private handleRemove(file: fileType, raw: rawFile) {
+    if (raw) {
+      file != this.getFile(raw);
+    }
+    let doRemove = () => {
+      console.log(file, this.fileList);
+      let fileList: any = this.fileList;
+      fileList.splice(fileList.indexOf(file), 1);
+      this.onRemove(file, fileList);
+    };
+    if (!this.beforeRemove) {
+      doRemove();
+    } else if (typeof this.beforeRemove === 'function') {
+      const before = this.beforeRemove(file, this.uploadFiles);
+      if (before && before.then) {
+        before.then(() => {
+          doRemove();
+        }, noop);
+      } else if (before !== false) {
+        doRemove();
+      }
+    }
+  }
   private handleError(err: ProgressEvent, rawFile: rawFile) {
     console.log('失败', err, rawFile);
     let file = this.getFile(rawFile);
@@ -160,29 +180,5 @@ export default class DyUpload extends Vue {
     // 多个文件如何上传
     this.uploadFiles(files);
     console.log('handleChange', files);
-  }
-  private handleRemove(file: fileType, raw: rawFile) {
-    if (raw) {
-      file != this.getFile(raw);
-    }
-    let doRemove = () => {
-      console.log(file, this.uploadFiles);
-      this.abort(file);
-      let fileList: any = this.uploadFiles;
-      fileList.splice(fileList.indexOf(file), 1);
-      this.onRemove(file, fileList);
-    };
-    if (!this.beforeRemove) {
-      doRemove();
-    } else if(typeof this.beforeRemove === 'function'){
-      const before = this.beforeRemove(file, this.uploadFiles);
-      if(before && before.then) {
-        before.then(() => {
-          doRemove();
-        }, noop);
-      } else if(before !== false) {
-        doRemove();
-      }
-    }
   }
 }
