@@ -1,8 +1,10 @@
-# dy-ui
+# dying-ui
 [![npm version](https://badge.fury.io/js/dying-ui.svg)](https://badge.fury.io/js/dying-ui)
 ## QuickStart
 ```bash
-npm install dy-ui
+npm install dying-ui
+OR
+yarn add dying-ui
 ```
 
 ### usage
