@@ -208,10 +208,11 @@
       <dy-button icon="dy-icon-image">点击上传</dy-button>
       <div slot="tip">只能上传jpg/png文件，且不能超过500kb</div>
     </dy-upload>
-    <dy-progress percentage="70" status="exception"></dy-progress>
-    <dy-progress percentage="70" :color="customColor1"></dy-progress>
-    <dy-progress percentage="70" :color="customColor2"></dy-progress>
-    <dy-progress percentage="30" :color="customColorMethod"></dy-progress>
+    <dy-progress :percentage="100" :format="format"></dy-progress>
+    <dy-progress :percentage="70" status="exception"></dy-progress>
+    <dy-progress :percentage="70" :color="customColor1"></dy-progress>
+    <dy-progress :percentage="70" :color="customColor2"></dy-progress>
+    <dy-progress :percentage="30" :color="customColorMethod"></dy-progress>
   </div>
 </template>
 
@@ -238,6 +239,10 @@ export default class App extends Vue {
   ];
   private mounted() {
     // console.log(typeof this.customColor2);
+  }
+  private format(percentage: number) {
+    console.log(percentage === 100 ? "满" : `${percentage}%`);    
+    return percentage === 100 ? "满" : `${percentage}%`;
   }
   private customColorMethod(per: number) {
     if (per < 30) {
