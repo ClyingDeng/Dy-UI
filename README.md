@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/dying-ui.svg)](https://badge.fury.io/js/dying-ui)
 ## Documentation
 
-Check out our docs at https://dying-ui.netlify.app/.
+Check out Mine docs at https://dying-ui.netlify.app/.
 
 ## QuickStart
 ```bash
