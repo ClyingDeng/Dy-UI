@@ -4,38 +4,28 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 export default class DyProgress extends Vue {
   @Prop({ default: 0 })
+  // tslint:disable-next-line: ban-types
   private percentage!: number;
   @Prop({ default: 6 }) private strokeWidth!: number;
   // tslint:disable-next-line: ban-types
   @Prop({default: ''}) private color!: string | Function | colorArrary[];
   @Prop({validator: (val) => ['success', 'exception', 'warning'].indexOf(val) > -1}) private status!: string;
+  // tslint:disable-next-line: ban-types
+  @Prop() private format!: number | Function;
+  get content() {
+    console.log(typeof this.format === 'function');
+    if (typeof this.format === 'function') {
+      return this.format(this.percentage) || '';
+    } else {
+      return `${this.percentage}%`;
+    }
+  }
   get barStyle() {
     let styles: any = {};
     styles.width = this.percentage + '%';
     styles.background = this.getCurrentColor(this.percentage);
     return styles;
   }
-  // get strokeColor() {
-  //   let ret;
-  //   if (this.color) {
-  //     ret = this.getCurrentColor(this.percentage);
-  //   } else {
-  //     switch (this.status) {
-  //       case 'success':
-  //         ret = '#13ce66';
-  //         break;
-  //       case 'exception':
-  //         ret = '#ff4949';
-  //         break;
-  //       case 'warning':
-  //         ret = '#e6a23c';
-  //         break;
-  //       default:
-  //         ret = '#20a0ff';
-  //     }
-  //   }
-  //   return ret;
-  // }
   get iconClass() {
     if (this.status === 'warning') {
       return 'dy-icon-caution';

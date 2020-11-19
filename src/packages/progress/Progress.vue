@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="dy-progress_text">
-      <template v-if="!status">{{percentage}}%</template>
+      <template v-if="!status">{{content}}</template>
       <dy-icon v-else :icon="iconClass"></dy-icon>
     </div>
   </div>
