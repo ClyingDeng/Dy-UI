@@ -1,7 +1,9 @@
 {
   "name": "dying-ui",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "private": false,
+  "main": "./dist/dying-ui.common.js",
+  "module": "./dist/dying-ui.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,8 +12,6 @@
     "test": "karma start",
     "lib": "vue-cli-service build --target lib --name dying-ui ./src/packages/index.ts"
   },
-  "main": "./dist/dying-ui.common.js",
-  "typings": "",
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@koa/multer": "^3.0.0",
