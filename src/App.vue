@@ -241,8 +241,7 @@ export default class App extends Vue {
     // console.log(typeof this.customColor2);
   }
   private format(percentage: number) {
-    console.log(percentage === 100 ? "满" : `${percentage}%`);    
-    return percentage === 100 ? "满" : `${percentage}%`;
+    return percentage === 100 ? '满' : `${percentage}%`;
   }
   private customColorMethod(per: number) {
     if (per < 30) {

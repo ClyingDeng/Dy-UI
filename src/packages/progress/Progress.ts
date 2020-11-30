@@ -13,7 +13,6 @@ export default class DyProgress extends Vue {
   // tslint:disable-next-line: ban-types
   @Prop() private format!: number | Function;
   get content() {
-    console.log(typeof this.format === 'function');
     if (typeof this.format === 'function') {
       return this.format(this.percentage) || '';
     } else {
