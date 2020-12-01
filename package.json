@@ -1,9 +1,8 @@
 {
   "name": "dying-ui",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "private": false,
-  "main": "./dist/dying-ui.common.js",
-  "module": "./dist/dying-ui.common.js",
+  "main": "./dist/dying-ui.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
