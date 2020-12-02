@@ -1,12 +1,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
-    name: 'DyAside',
+  name: 'DyAside',
 })
 export default class DyAside extends Vue {
-    @Prop({
-        default: '300px',
-    })
-    private width!: string;
-
+  public static comName = 'DyAside';
+  @Prop({
+    default: '300px',
+  })
+  private width!: string;
 }

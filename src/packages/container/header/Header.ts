@@ -4,6 +4,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
     name: 'DyHeader',
 })
 export default class DyHeader extends Vue {
+    public static comName = 'DyHeader';
     @Prop({
         default: '60px',
     })

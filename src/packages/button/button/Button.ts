@@ -3,6 +3,7 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
   name: 'DyButton',
 })
 export default class DyButton extends Vue {
+  public static comName = 'DyButton';
   @Prop({
     default: '',
     validator(type) {

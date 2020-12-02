@@ -5,6 +5,7 @@ import ajax1 from './ajax1';
   name: 'DyUpload',
 })
 export default class DyUpload extends Vue {
+  public static comName = 'DyUpload';
   private tempIndex: number = 1;
   private files: fileType[] = []; // 存储要展示的列表
   private reqs: any = {};
@@ -34,9 +35,6 @@ export default class DyUpload extends Vue {
       return _;
     });
     // console.log(this.files );
-  }
-  private mounted() {
-    // console.log(this.httpRequest, ajax1);
   }
   private handleClick() {
     //点击之前 先清空输入框

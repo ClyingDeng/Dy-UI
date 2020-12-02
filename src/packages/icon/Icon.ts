@@ -4,6 +4,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   name: 'DyIcon',
 })
 export default class DyIcon extends Vue {
+  public static comName = 'DyIcon';
   @Prop({
     required: true,
   })
