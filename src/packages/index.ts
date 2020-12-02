@@ -31,23 +31,23 @@ let components = [
   DyUpload,
 ];
 const install = (Vue: any) => {
-  // components.forEach( (_: any) => {
-  console.log('DyButton', DyButton);
-  //   Vue.component(_.name, _);
-  // });
-  Vue.component('DyButton', DyButton);
-  // Vue.component(DyButton.name, DyButton);
-  Vue.component('DyIcon', DyIcon);
-  Vue.component('DyButtonGroup', DyButtonGroup);
-  Vue.component('DyCol', DyCol);
-  Vue.component('DyRow', DyRow);
-  Vue.component('DyAside', DyAside);
-  Vue.component('DyContainer', DyContainer);
-  Vue.component('DyMain', DyMain);
-  Vue.component('DyHeader', DyHeader);
-  Vue.component('DyInput', DyInput);
-  Vue.component('DyProgress', DyProgress);
-  Vue.component('DyUpload', DyUpload);
+  components.forEach((_: any) => {
+    // console.log('组件名', _.name);
+    // Vue.component(_.name, _);
+    Vue.component(_.comName, _);
+  });
+  // Vue.component('DyButton', DyButton);
+  // Vue.component('DyIcon', DyIcon);
+  // Vue.component('DyButtonGroup', DyButtonGroup);
+  // Vue.component('DyCol', DyCol);
+  // Vue.component('DyRow', DyRow);
+  // Vue.component('DyAside', DyAside);
+  // Vue.component('DyContainer', DyContainer);
+  // Vue.component('DyMain', DyMain);
+  // Vue.component('DyHeader', DyHeader);
+  // Vue.component('DyInput', DyInput);
+  // Vue.component('DyProgress', DyProgress);
+  // Vue.component('DyUpload', DyUpload);
 };
 // 有可能组件会通过script标签的方式引入
 // <script src="dy-ui"></script>

@@ -4,6 +4,7 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
   name: 'DyInput',
 })
 export default class DyInput extends Vue {
+  public static comName = 'DyInput';
   @Prop({
     default: 'text',
   })

@@ -4,5 +4,5 @@ import { Component, Vue } from 'vue-property-decorator';
     name: 'DyMain',
 })
 export default class DyMain extends Vue {
-
+    public static comName = 'DyMain';
 }

@@ -1,15 +1,16 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 declare module 'vue/types/vue' {
-    interface Vue {
-        [key: string]: any;
-    }
+  interface Vue {
+    [key: string]: any;
+  }
 }
 @Component({
   name: 'DyCol',
 })
 export default class DyCol extends Vue {
-  @Prop({ default: 24}) private readonly span!: number;
-  @Prop({ default: 0}) private readonly offset!: number;
+  public static comName = 'DyCol';
+  @Prop({ default: 24 }) private readonly span!: number;
+  @Prop({ default: 0 }) private readonly offset!: number;
   @Prop([Number, Object])
   private xs!: number | object;
   @Prop([Number, Object])
@@ -36,21 +37,21 @@ export default class DyCol extends Vue {
         // tslint:disable-next-line: no-unused-expression
         offset && classes.push(`dy-col-${type}-${offset}`);
       } else {
-          // tslint:disable-next-line: no-unused-expression
-          this[type] && classes.push(`dy-col-${type}-${this[type]}`);
+        // tslint:disable-next-line: no-unused-expression
+        this[type] && classes.push(`dy-col-${type}-${this[type]}`);
       }
     });
     return classes;
   }
   get colStyle() {
-      let style = {};
-      if (this.gutter) {
-          style = {
-              ...style,
-              paddingLeft: this.gutter / 2 + 'px',
-              paddingRight: this.gutter / 2 + 'px',
-          };
-      }
-      return style;
+    let style = {};
+    if (this.gutter) {
+      style = {
+        ...style,
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px',
+      };
+    }
+    return style;
   }
 }
