@@ -56,13 +56,13 @@ export default class DyUpload extends Vue {
     };
     file.url = URL.createObjectURL(rawFile); // 通过源文件创建一个路径
     this.files.push(file); // 将当前用户上传的文件push到列表中，过一会显示
-    this.onChange && this.onChange(file);
+    this.onChange && this.onChange(file, this.files);
   }
   private getFile(rawFile: rawFile) {
     return this.files.find(file => file.uid === rawFile.uid);
   }
   private handleProgress(ev: ProgressEvent, rawFile: rawFile) {
-    console.log('处理上传中', ev, rawFile);
+    // console.log('处理上传中', ev, rawFile);
     // 通过源文件 用户上传的文件 => 格式化文件
     let file = this.getFile(rawFile);
     file!.status = 'uploading';
@@ -78,15 +78,15 @@ export default class DyUpload extends Vue {
       file != this.getFile(raw);
     }
     let doRemove = () => {
-      console.log(file, this.fileList);
-      let fileList: any = this.fileList;
+      let fileList: any = this.files;
       fileList.splice(fileList.indexOf(file), 1);
       this.onRemove(file, fileList);
     };
     if (!this.beforeRemove) {
       doRemove();
     } else if (typeof this.beforeRemove === 'function') {
-      const before = this.beforeRemove(file, this.uploadFiles);
+      const before = this.beforeRemove(file, this.files);
+      console.log(before, this.fileList[0],file, this.files, this.uploadFiles);
       if (before && before.then) {
         before.then(() => {
           doRemove();
@@ -97,7 +97,7 @@ export default class DyUpload extends Vue {
     }
   }
   private handleError(err: ProgressEvent, rawFile: rawFile) {
-    console.log('失败', err, rawFile);
+    // console.log('失败', err, rawFile);
     let file = this.getFile(rawFile);
     file!.status = 'fail';
     this.onError(err, rawFile);
@@ -136,7 +136,7 @@ export default class DyUpload extends Vue {
       }
     };
     // req就是当前的请求
-    console.log(options);
+    // console.log(options);
 
     let req = this.httpRequest(options);
     this.reqs[uid] = req; // 每个ajax 先存起来，稍后可以取消请求
@@ -146,9 +146,12 @@ export default class DyUpload extends Vue {
     }
   }
   private upload(rawFile: rawFile) {
+    // (this.$refs.input as HTMLElement).value = null;
+    console.log(this.beforeUpload, this.beforeUpload(rawFile));
     // 先判断文件是否能够上传
     if (!this.beforeUpload) {
       //直接上传
+      return this.post(rawFile);
     }
     // 否则 调用用户的函数获取返回值
     let flag = this.beforeUpload(rawFile);
@@ -158,7 +161,12 @@ export default class DyUpload extends Vue {
       console.log('上传');
 
       return this.post(rawFile);
+    }else if (flag !== false) {
+      this.post(rawFile);
+    } else {
+      this.onRemove(null, rawFile);
     }
+
   }
   private uploadFiles(files: Array<rawFile>) {
     //限制上传是否达到最大条件
@@ -175,8 +183,9 @@ export default class DyUpload extends Vue {
   private handleChange(e: targetEvent) {
     // 获取选中文件
     const files = e.target.files;
+    if (!files) return;
     // 多个文件如何上传
     this.uploadFiles(files);
-    console.log('handleChange', files);
+    // console.log('handleChange', files);
   }
 }
