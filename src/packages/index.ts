@@ -14,6 +14,8 @@ import DyMain from './container/main/Main.vue';
 import DyInput from './input/Input.vue';
 import DyProgress from './progress/Progress.vue';
 import DyUpload from './upload/Upload.vue';
+import DyDatePicker from './date-picker/date-pick/DatePicker.vue';
+import DyDateRangePicker from './date-picker/date-range-picker/DateRangePicker.vue';
 
 let components = [
   DyButton,
@@ -29,6 +31,8 @@ let components = [
   DyInput,
   DyProgress,
   DyUpload,
+  DyDatePicker,
+  DyDateRangePicker,
 ];
 const install = (Vue: any) => {
   components.forEach((_: any) => {
