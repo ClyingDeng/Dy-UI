@@ -1,3 +1,28 @@
-.dy-date-picker{
+.dy-date-picker {
+    border : 1px solid red;
+    display: inline-block;
 
+    .dy-date-content {
+        position   : absolute;
+        z-index    : 10;
+        user-select: none;
+        width      : 280px;
+        background : #ffffff;
+        box-shadow : 1px 1px 2px $primary, -1px -1px 2px $primary;
+
+        .dy-date-picker-header {
+            height         : 40px;
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+        }
+
+        .cell {
+            width : 40px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            text-align: center;
+        }
+    }
 }
