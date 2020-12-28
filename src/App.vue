@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <dy-button type="info">默认按钮</dy-button>
+    <!-- <dy-button type="info">默认按钮</dy-button>
     <dy-button>默认按钮</dy-button>
     <dy-button type="success">默认按钮</dy-button>
     <dy-button type="primary">默认按钮</dy-button>
     <dy-button type="warning">默认按钮</dy-button>
-    <dy-icon icon="dy-icon-play"></dy-icon>
+    <dy-icon icon="dy-icon-play"></dy-icon> -->
     <!-- 带icon的按钮 -->
     <dy-button type="warning" icon="dy-icon-play">默认按钮</dy-button>
     <dy-button type="warning" icon="dy-icon-play" icon-position="right"
@@ -16,7 +16,7 @@
     <!-- 朴素 -->
     <dy-button type="primary" plain>朴素按钮</dy-button>
     <!-- 按钮组 -->
-    <dy-button-group>
+    <!-- <dy-button-group>
       <dy-button type="primary" icon="dy-icon-arrow-left" icon-position="left"
         >上一页</dy-button
       >
@@ -120,8 +120,8 @@
         ><div class="grid-content bg-purple-light"></div
       ></dy-col>
       <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
-    </dy-row>
-
+    </dy-row> -->
+<!-- 
     <dy-row :gutter="10">
       <dy-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
         ><div class="grid-content bg-purple-light">hh</div></dy-col
@@ -149,7 +149,7 @@
         <dy-main>mian</dy-main>
       </dy-container>
       <dy-footer>footer</dy-footer>
-    </dy-container>
+    </dy-container> -->
 
     <!-- <dy-input
       type="text"
@@ -293,7 +293,7 @@ export default class App extends Vue {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
   .grid-content {
     border-radius: 4px;

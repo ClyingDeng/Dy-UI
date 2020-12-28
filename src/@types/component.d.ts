@@ -36,12 +36,17 @@ interface fileOptions {
   onError: (err: ProgressEvent<EventTarget>) => any | null;
 }
 interface rawFile extends File {
-    uid: number
+  uid: number;
 }
-interface targetEvent extends HTMLInputElement{
+interface targetEvent extends HTMLInputElement {
   [x: string]: any;
 }
 interface colorArrary {
   color: string;
   percentage: number;
+}
+interface Time {
+  year: string;
+  month: string;
+  day: string;
 }
