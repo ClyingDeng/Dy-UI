@@ -15,14 +15,39 @@
             display        : flex;
             justify-content: space-between;
             align-items    : center;
+            .dy-icon{
+                cursor: pointer;
+            }
         }
 
         .cell {
-            width : 40px;
-            height: 40px;
+            width      : 40px;
+            height     : 40px;
             line-height: 40px;
-            display: inline-block;
-            text-align: center;
+            display    : inline-block;
+            text-align : center;
+            color      : #606266;
+            cursor     : pointer;
         }
+
+        .isNotCurrentMonth {
+            color: #c0c4cc;
+        }
+        
+        .cell-dates:hover:not(.isNotCurrentMonth):not(.isSelect) {
+            color: $primary;
+        }
+        .isToday {
+            color      : $primary;
+            font-weight: 700;
+            background: #ffffff;
+        }
+
+        .isSelect {
+            color        : #ffffff;
+            background   : $primary;
+            border-radius: 50%;
+        }
+
     }
 }
