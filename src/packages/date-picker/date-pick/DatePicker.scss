@@ -15,7 +15,8 @@
             display        : flex;
             justify-content: space-between;
             align-items    : center;
-            .dy-icon{
+
+            .dy-icon {
                 cursor: pointer;
             }
         }
@@ -30,17 +31,30 @@
             cursor     : pointer;
         }
 
+        .cell-year{
+            width      : 70px;
+            height     : 70px;
+            line-height: 70px;
+        }
+
         .isNotCurrentMonth {
             color: #c0c4cc;
         }
-        
+
         .cell-dates:hover:not(.isNotCurrentMonth):not(.isSelect) {
             color: $primary;
         }
+
         .isToday {
             color      : $primary;
             font-weight: 700;
-            background: #ffffff;
+            background : #ffffff;
+        }
+
+        .isYear {
+            color      : $primary;
+            font-weight: 700;
+            background : #ffffff;
         }
 
         .isSelect {

@@ -4,17 +4,18 @@
       suffix-icon="dy-icon-rili"
       @focus="handleFocus"
       :value="formateDate"
+      @change="handleChange"
     ></dy-input>
     <div class="dy-date-content" v-if="isVisible">
-      <div class="dy-date-picker-header">
-        <dy-icon icon="dy-icon-doubleleft" @click="changeYear(-1)"></dy-icon>
-        <dy-icon icon="dy-icon-arrow-left" @click="changeMonth(-1)"></dy-icon>
-        <span>{{ tempTime.year }}年 {{ tempTime.month + 1 }}月</span>
-        <dy-icon icon="dy-icon-arrow-right" @click="changeMonth(1)"></dy-icon>
-        <dy-icon icon="dy-icon-doubleright" @click="changeYear(1)"></dy-icon>
-      </div>
       <div class="dy-date-picker-content">
         <template v-if="mode === 'dates'">
+           <div class="dy-date-picker-header">
+             <dy-icon icon="dy-icon-doubleleft" @click="changeYear(-1)"></dy-icon>
+             <dy-icon icon="dy-icon-arrow-left" @click="changeMonth(-1)"></dy-icon>
+             <span> <b @click="mode = 'years'">{{ tempTime.year }}</b> 年 <b @click="mode = 'months'">{{ tempTime.month + 1 }}</b> 月</span>
+             <dy-icon icon="dy-icon-arrow-right" @click="changeMonth(1)"></dy-icon>
+             <dy-icon icon="dy-icon-doubleright" @click="changeYear(1)"></dy-icon>
+           </div>
           <div>
             <span class="cell" v-for="week in weeks" :key="week">{{week}}</span>
           </div>
@@ -31,8 +32,23 @@
             </span>
           </div>
         </template>
-        
-        <template v-if="mode === 'years'">years</template>
+        <template v-if="mode === 'years'">
+           <div class="dy-date-picker-header">
+            <dy-icon icon="dy-icon-doubleleft" @click="changeYear(-10)"></dy-icon>
+            <span> <b>{{ startYear }}</b> 年 - <b>{{ startYear + 9 }}</b> 年</span>
+            <dy-icon icon="dy-icon-doubleright" @click="changeYear(10)"></dy-icon>
+          </div>
+          <!-- <div class="yearContent" v-for="y in 10" :key="y"> -->
+            <span class="cell cell-year"  v-for="y in 10" :key="y"
+            :class="{
+              isYear: isYear( startYear + y - 1),
+            }"
+             @click="mode = 'months'"
+            >
+              {{ startYear + y - 1 }}
+            </span>
+          <!-- </div> -->
+        </template>
         <template v-if="mode === 'months'">months</template>
       </div>
     </div>
