@@ -49,7 +49,18 @@
             </span>
           <!-- </div> -->
         </template>
-        <template v-if="mode === 'months'">months</template>
+        <template v-if="mode === 'months'">
+          <div class="dy-date-picker-header">
+            <dy-icon icon="dy-icon-doubleleft" @click="changeYear(-10)"></dy-icon>
+            <span> <b @click="mode = 'years'">{{this.tempTime.year}}</b> 年</span>
+            <dy-icon icon="dy-icon-doubleright" @click="changeYear(10)"></dy-icon>
+          </div>
+          <span class="cell cell-year"  v-for="m in 12" :key="m"
+             @click="monthToDate(m)"
+            >
+              {{ m }} 月
+            </span>
+        </template>
       </div>
     </div>
   </div>

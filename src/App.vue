@@ -216,6 +216,9 @@
     {{value1}}
     <dy-date-picker v-model="value1"></dy-date-picker>
     <!-- <dy-date-range-picker></dy-date-range-picker> -->
+    <ul class="infinite-list" infinite-scroll="load" infinite-scroll-disabled="hasMore" infinite-scroll-delay="delay" infinite-scroll-distance="distance" infinite-scroll-immediate="immediate" style="overflow:auto">
+      <li v-for="i in count" class="infinite-list-item">{{ i }}</li>
+    </ul>
   </div>
 </template>
 
@@ -241,6 +244,11 @@ export default class App extends Vue {
     { color: '#1989fa', percentage: 80 },
     { color: '#6f7ad3', percentage: 100 },
   ];
+  private count: number = 0;
+  private hasMore: boolean = true;
+  private delay: number = 300;
+  private distance: number = 30;
+  private immediate: boolean = false;
   private mounted() {
     // console.log(typeof this.customColor2);
   }
@@ -285,6 +293,9 @@ export default class App extends Vue {
   private handleRemove(file: any, fileList: any) {
     console.log(file, fileList);
   }
+  private load() {
+    this.count += 2;
+  }
 }
 </script>
 
@@ -313,7 +324,13 @@ export default class App extends Vue {
     background-color: #f9fafc;
   }
 }
-
+.infinite-list {
+    height: 300px;
+    border: 1px solid #f00;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 .dy-header,
 .dy-footer {
   background-color: #b3c0d1;

@@ -110,6 +110,7 @@ export default class DyButton extends Vue {
   }
   private handleBlur() {
     this.isVisible = false;
+    this.mode = 'dates';
     console.log('handleBlur');
   }
   private handleFocus() {
@@ -123,6 +124,12 @@ export default class DyButton extends Vue {
     let [year] = this.getYearMonthDay(new Date());
     console.log(year, date);
     return year === date;
+  }
+  // 从月 跳到date面板
+  private monthToDate(m: string) {
+    this.tempTime.month = m;
+    console.log(this.tempTime);
+    this.mode = 'dates';
   }
   private isCurrentMonth(date: Date) {
     let {year, month} = this.tempTime;
