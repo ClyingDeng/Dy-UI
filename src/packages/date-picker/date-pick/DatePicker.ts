@@ -78,6 +78,10 @@ export default class DyButton extends Vue {
     }
     return arr;
   }
+  get startYear() {
+    // tslint:disable-next-line
+    return parseInt(this.tempTime.year) - parseInt(this.tempTime.year) % 10;
+  }
   private mounted() {
     let [year, month, day] = this.getYearMonthDay(this.value || new Date());
     this.time = {
@@ -92,6 +96,18 @@ export default class DyButton extends Vue {
     };
     console.log(this.mode);
   }
+  private handleChange(e: any) {
+    // 失去焦点时更新用户输入
+    let newValue = e.target.value;
+    let regExp = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+    if (newValue.match(regExp)) {
+       // tslint:disable-next-line
+      this.$emit('input', new Date(parseInt(RegExp.$1), parseInt(RegExp.$2), parseInt(RegExp.$3)))
+    } else {
+      e.target.value = this.formateDate; // 将原来的值附回去
+    }
+    this.handleBlur();
+  }
   private handleBlur() {
     this.isVisible = false;
     console.log('handleBlur');
@@ -102,6 +118,11 @@ export default class DyButton extends Vue {
   }
   private getCurrentDate(i: number , j: number) {
     return this.visibleData[(i - 1) * 7 + (j - 1)];
+  }
+  private isYear(date: string) {
+    let [year] = this.getYearMonthDay(new Date());
+    console.log(year, date);
+    return year === date;
   }
   private isCurrentMonth(date: Date) {
     let {year, month} = this.tempTime;
@@ -137,6 +158,7 @@ export default class DyButton extends Vue {
     this.tempTime.year = year;
     this.tempTime.month = month;
   }
+
   private getYearMonthDay(date: any) {
     let year = date.getFullYear();
     let month = date.getMonth();
