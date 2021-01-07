@@ -17,6 +17,7 @@ import DyUpload from './upload/Upload.vue';
 import DyDatePicker from './date-picker/date-pick/DatePicker.vue';
 import DyDateRangePicker from './date-picker/date-range-picker/DateRangePicker.vue';
 
+import DyPopover from './popover/Popover.vue';
 import infiniteScroll from './infiniteScroll';
 let components = [
   DyButton,
@@ -33,8 +34,8 @@ let components = [
   DyProgress,
   DyUpload,
   DyDatePicker,
-  DyDateRangePicker
-  // infiniteScroll,
+  DyDateRangePicker,
+  DyPopover
 ];
 // console.log(infiniteScroll, infiniteScroll.comName);
 const install = (Vue: any) => {

@@ -227,6 +227,17 @@
     >
       <li v-for="i in count" class="infinite-list-item">{{ i }}</li>
     </ul>
+    <div class="infinite-list-wrapper" style="overflow:auto">
+      <ul
+        class="list"
+        v-infinite-scroll="load1"
+        infinite-scroll-disabled="disabled"
+      >
+        <li v-for="i in count1" class="list-item">{{ i }}</li>
+      </ul>
+      <p v-if="loading">加载中...</p>
+      <p v-if="noMore">没有更多了</p>
+    </div>
   </div>
 </template>
 
@@ -257,6 +268,21 @@ export default class App extends Vue {
   private delay: number = 300;
   private distance: number = 30;
   private immediate: boolean = false;
+  private count1: number = 10;
+  private loading: boolean = false;
+  private get noMore() {
+    return this.count1 >= 20;
+  }
+  private get disabled() {
+    return this.loading || this.noMore;
+  }
+  private load1() {
+    this.loading = true;
+    setTimeout(() => {
+      this.count += 2;
+      this.loading = false;
+    }, 2000);
+  }
   private mounted() {
     // console.log(typeof this.customColor2);
   }
@@ -332,12 +358,36 @@ export default class App extends Vue {
     background-color: #f9fafc;
   }
 }
+.list {
+  height: 300px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  .list-item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: #fff6f6;
+    color: #ff8484;
+  }
+}
 .infinite-list {
   height: 300px;
-  border: 1px solid #f00;
+  // border: 1px solid #f00;
   padding: 0;
   margin: 0;
   list-style: none;
+  .infinite-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: #e8f3fe;
+    margin: 10px;
+    color: #7dbcfc;
+  }
 }
 .dy-header,
 .dy-footer {
