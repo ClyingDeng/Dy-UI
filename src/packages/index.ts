@@ -17,6 +17,7 @@ import DyUpload from './upload/Upload.vue';
 import DyDatePicker from './date-picker/date-pick/DatePicker.vue';
 import DyDateRangePicker from './date-picker/date-range-picker/DateRangePicker.vue';
 
+import infiniteScroll from './infiniteScroll';
 let components = [
   DyButton,
   DyIcon,
@@ -32,14 +33,17 @@ let components = [
   DyProgress,
   DyUpload,
   DyDatePicker,
-  DyDateRangePicker,
+  DyDateRangePicker
+  // infiniteScroll,
 ];
+// console.log(infiniteScroll, infiniteScroll.comName);
 const install = (Vue: any) => {
   components.forEach((_: any) => {
     // console.log('组件名', _.name);
     // Vue.component(_.name, _);
     Vue.component(_.comName, _);
   });
+  Vue.directive(infiniteScroll.comName, infiniteScroll);
   // Vue.component('DyButton', DyButton);
   // Vue.component('DyIcon', DyIcon);
   // Vue.component('DyButtonGroup', DyButtonGroup);
@@ -60,5 +64,5 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
 }
 
 export default {
-  install,
+  install
 };

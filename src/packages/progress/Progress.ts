@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component({
-  name: 'DyProgress',
+  name: 'DyProgress'
 })
 export default class DyProgress extends Vue {
   public static comName = 'DyProgress';
@@ -9,8 +9,11 @@ export default class DyProgress extends Vue {
   private percentage!: number;
   @Prop({ default: 6 }) private strokeWidth!: number;
   // tslint:disable-next-line: ban-types
-  @Prop({default: ''}) private color!: string | Function | colorArrary[];
-  @Prop({validator: (val) => ['success', 'exception', 'warning'].indexOf(val) > -1}) private status!: string;
+  @Prop({ default: '' }) private color!: string | Function | colorArrary[];
+  @Prop({
+    validator: (val) => ['success', 'exception', 'warning'].indexOf(val) > -1
+  })
+  private status!: string;
   // tslint:disable-next-line: ban-types
   @Prop() private format!: number | Function;
   get content() {
@@ -43,7 +46,7 @@ export default class DyProgress extends Vue {
   }
   private getLevelColor(per: number) {
     let colorArr: colorArrary[] = this.getColorArrary().sort(
-      (a: colorArrary, b: colorArrary) => a.percentage - b.percentage,
+      (a: colorArrary, b: colorArrary) => a.percentage - b.percentage
     );
     colorArr.forEach((_: colorArrary) => {
       if (_.percentage > per) {
@@ -56,7 +59,7 @@ export default class DyProgress extends Vue {
     let color: any = this.color;
     let span = 100 / this.color.length;
     return color.map((c: colorArrary, i: number) =>
-      typeof c === 'string' ? { color: c, progress: (i + 1) * span } : c,
+      typeof c === 'string' ? { color: c, progress: (i + 1) * span } : c
     );
   }
 }

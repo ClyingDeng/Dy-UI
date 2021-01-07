@@ -1,38 +1,38 @@
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
-  name: 'DyInput',
+  name: 'DyInput'
 })
 export default class DyInput extends Vue {
   public static comName = 'DyInput';
   @Prop({
-    default: 'text',
+    default: 'text'
   })
   private type!: string;
   @Prop({
-    default: '',
+    default: ''
   })
   private value!: string | number;
   @Prop(String) private placeholder!: string;
   @Prop(String) private name!: string;
   @Prop({
-    default: false,
+    default: false
   })
   private disabled!: boolean;
   @Prop({
-    default: false,
+    default: false
   })
   private clearable!: boolean;
   @Prop({
-    default: false,
+    default: false
   })
   private showPassword!: boolean;
   @Prop({
-    default: '',
+    default: ''
   })
   private prefixIcon!: string;
   @Prop({
-    default: '',
+    default: ''
   })
   private suffixIcon!: string;
 

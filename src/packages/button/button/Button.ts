@@ -1,6 +1,6 @@
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 @Component({
-  name: 'DyButton',
+  name: 'DyButton'
 })
 export default class DyButton extends Vue {
   public static comName = 'DyButton';
@@ -13,11 +13,11 @@ export default class DyButton extends Vue {
       ) {
         console.error(
           'type类型必须为：' +
-            ['warning', 'success', 'danger', 'info', 'primary'].join('、'),
+            ['warning', 'success', 'danger', 'info', 'primary'].join('、')
         );
       }
       return true;
-    },
+    }
   })
   private readonly type!: string;
   @Prop(String)
@@ -29,7 +29,7 @@ export default class DyButton extends Vue {
         console.log('iconPosition属性必须为：' + 'left | right');
       }
       return true;
-    },
+    }
   })
   private readonly iconPosition!: string;
   @Prop(Boolean)

@@ -12,7 +12,12 @@
     "trailing-comma": [
       true,
       {
-        "multiline": "always",
+        "multiline": {
+          "objects": "never",
+          "arrays": "never",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        },
         "singleline": "never",
         "esSpecCompliant": true
       }
@@ -31,6 +36,7 @@
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
     "no-console": false,
+    "arrow-parens": [false, "ban-single-arg-parens"],
     "no-namespace": false,
     "only-arrow-functions": false,
     "prefer-const": false,

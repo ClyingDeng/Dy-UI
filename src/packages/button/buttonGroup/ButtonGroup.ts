@@ -1,6 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 @Component({
-    name: 'DyButtonGroup',
+  name: 'DyButtonGroup'
 })
 export default class DyButtonGroup extends Vue {
   public static comName = 'DyButtonGroup';
@@ -9,8 +9,7 @@ export default class DyButtonGroup extends Vue {
     let children = this.$el.children;
     // console.log(children);
     for (let i = 0; i < children.length; i++) {
-        console.assert(children[i].tagName === 'BUTTON', '子元素必须为button');
+      console.assert(children[i].tagName === 'BUTTON', '子元素必须为button');
     }
   }
-
 }

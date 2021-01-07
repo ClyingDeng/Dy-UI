@@ -16,6 +16,12 @@
             justify-content: space-between;
             align-items    : center;
 
+            span {
+                b {
+                    cursor: pointer;
+                }
+            }
+
             .dy-icon {
                 cursor: pointer;
             }
@@ -31,7 +37,7 @@
             cursor     : pointer;
         }
 
-        .cell-year{
+        .cell-year {
             width      : 70px;
             height     : 70px;
             line-height: 70px;
@@ -52,6 +58,12 @@
         }
 
         .isYear {
+            color      : $primary;
+            font-weight: 700;
+            background : #ffffff;
+        }
+
+        .isMonth {
             color      : $primary;
             font-weight: 700;
             background : #ffffff;

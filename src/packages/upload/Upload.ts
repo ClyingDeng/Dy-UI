@@ -2,7 +2,7 @@ import { noop } from 'vue-class-component/lib/util';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import ajax1 from './ajax1';
 @Component({
-  name: 'DyUpload',
+  name: 'DyUpload'
 })
 export default class DyUpload extends Vue {
   public static comName = 'DyUpload';
@@ -86,7 +86,7 @@ export default class DyUpload extends Vue {
       doRemove();
     } else if (typeof this.beforeRemove === 'function') {
       const before = this.beforeRemove(file, this.files);
-      console.log(before, this.fileList[0],file, this.files, this.uploadFiles);
+      console.log(before, this.fileList[0], file, this.files, this.uploadFiles);
       if (before && before.then) {
         before.then(() => {
           doRemove();
@@ -161,12 +161,11 @@ export default class DyUpload extends Vue {
       console.log('上传');
 
       return this.post(rawFile);
-    }else if (flag !== false) {
+    } else if (flag !== false) {
       this.post(rawFile);
     } else {
       this.onRemove(null, rawFile);
     }
-
   }
   private uploadFiles(files: Array<rawFile>) {
     //限制上传是否达到最大条件
