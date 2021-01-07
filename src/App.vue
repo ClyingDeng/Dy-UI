@@ -121,7 +121,7 @@
       ></dy-col>
       <dy-col :span="6"><div class="grid-content bg-purple"></div></dy-col>
     </dy-row> -->
-<!-- 
+    <!-- 
     <dy-row :gutter="10">
       <dy-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
         ><div class="grid-content bg-purple-light">hh</div></dy-col
@@ -213,10 +213,18 @@
     <dy-progress :percentage="70" :color="customColor1"></dy-progress>
     <dy-progress :percentage="70" :color="customColor2"></dy-progress>
     <dy-progress :percentage="30" :color="customColorMethod"></dy-progress>
-    {{value1}}
-    <dy-date-picker v-model="value1"></dy-date-picker>
+    {{ value1 }}
+    <!-- <dy-date-picker v-model="value1"></dy-date-picker> -->
     <!-- <dy-date-range-picker></dy-date-range-picker> -->
-    <ul class="infinite-list" infinite-scroll="load" infinite-scroll-disabled="hasMore" infinite-scroll-delay="delay" infinite-scroll-distance="distance" infinite-scroll-immediate="immediate" style="overflow:auto">
+    <ul
+      class="infinite-list"
+      v-infinite-scroll="load"
+      infinite-scroll-disabled="hasMore"
+      infinite-scroll-delay="delay"
+      infinite-scroll-distance="distance"
+      infinite-scroll-immediate="immediate"
+      style="overflow:auto"
+    >
       <li v-for="i in count" class="infinite-list-item">{{ i }}</li>
     </ul>
   </div>
@@ -233,8 +241,8 @@ export default class App extends Vue {
     {
       name: 'food2.jpeg',
       url:
-        'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-    },
+        'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+    }
   ];
   private customColor1 = '#909399';
   private customColor2: colorArrary[] = [
@@ -242,10 +250,10 @@ export default class App extends Vue {
     { color: '#e6a23c', percentage: 40 },
     { color: '#5cb87a', percentage: 60 },
     { color: '#1989fa', percentage: 80 },
-    { color: '#6f7ad3', percentage: 100 },
+    { color: '#6f7ad3', percentage: 100 }
   ];
   private count: number = 0;
-  private hasMore: boolean = true;
+  private hasMore: boolean = false;
   private delay: number = 300;
   private distance: number = 30;
   private immediate: boolean = false;
@@ -325,11 +333,11 @@ export default class App extends Vue {
   }
 }
 .infinite-list {
-    height: 300px;
-    border: 1px solid #f00;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  height: 300px;
+  border: 1px solid #f00;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 .dy-header,
 .dy-footer {

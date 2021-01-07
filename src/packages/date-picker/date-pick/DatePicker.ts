@@ -4,8 +4,8 @@ import clickOutSide from 'v-click-outside';
 @Component({
   name: 'DyDatePicker',
   directives: {
-    clickOutSide: clickOutSide.directive,
-  },
+    clickOutSide: clickOutSide.directive
+  }
 })
 export default class DyButton extends Vue {
   public static comName = 'DyDatePicker';
@@ -16,12 +16,12 @@ export default class DyButton extends Vue {
   private time: Time = {
     year: '',
     month: '',
-    day: '',
+    day: ''
   };
   private tempTime: Time = {
     year: '',
     month: '',
-    day: '',
+    day: ''
   };
   private weeks: string[] = ['日', '一', '二', '三', '四', '五', '六'];
   private months: string[] = [
@@ -36,7 +36,7 @@ export default class DyButton extends Vue {
     '九月',
     '十月',
     '十一月',
-    '十二月',
+    '十二月'
   ];
   // 监听时间变化
   @Watch('value')
@@ -45,7 +45,7 @@ export default class DyButton extends Vue {
     this.time = {
       year,
       month,
-      day,
+      day
     };
     this.tempTime = { ...this.time }; // 拷贝用于后续更改
   }
@@ -54,10 +54,9 @@ export default class DyButton extends Vue {
   get formateDate() {
     if (this.value) {
       let { year, month, day } = this.time;
-      return `${year}-${(month + 1 + '').padStart(2, '0')}-${(day + '').padStart(
-        2,
-        '0',
-      )}`;
+      return `${year}-${(month + 1 + '').padStart(2, '0')}-${(
+        day + ''
+      ).padStart(2, '0')}`;
     }
   }
   // <!-- 直接将自己向前移动多少天后 开始循环42天 -->
@@ -65,7 +64,7 @@ export default class DyButton extends Vue {
     let firstDay: any = new Date(
       parseInt(this.tempTime.year, 0),
       parseInt(this.tempTime.month, 0),
-      1,
+      1
     ); // 当月一号
     let weekDay = firstDay.getDay(); // 周日 0  周六 6
     weekDay = weekDay === 0 ? 7 : weekDay;
@@ -80,19 +79,19 @@ export default class DyButton extends Vue {
   }
   get startYear() {
     // tslint:disable-next-line
-    return parseInt(this.tempTime.year) - parseInt(this.tempTime.year) % 10;
+    return parseInt(this.tempTime.year) - (parseInt(this.tempTime.year) % 10);
   }
   private mounted() {
     let [year, month, day] = this.getYearMonthDay(this.value || new Date());
     this.time = {
       year,
       month,
-      day,
+      day
     };
     this.tempTime = {
       year,
       month,
-      day,
+      day
     };
     console.log(this.mode);
   }
@@ -101,8 +100,10 @@ export default class DyButton extends Vue {
     let newValue = e.target.value;
     let regExp = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
     if (newValue.match(regExp)) {
-       // tslint:disable-next-line
-      this.$emit('input', new Date(parseInt(RegExp.$1), parseInt(RegExp.$2), parseInt(RegExp.$3)))
+      this.$emit(
+        'input',
+        new Date(parseInt(RegExp.$1, 0), parseInt(RegExp.$2, 0), parseInt(RegExp.$3, 0))
+      );
     } else {
       e.target.value = this.formateDate; // 将原来的值附回去
     }
@@ -117,7 +118,7 @@ export default class DyButton extends Vue {
     this.isVisible = true;
     console.log('handleFocus');
   }
-  private getCurrentDate(i: number , j: number) {
+  private getCurrentDate(i: number, j: number) {
     return this.visibleData[(i - 1) * 7 + (j - 1)];
   }
   private isYear(date: string) {
@@ -132,7 +133,7 @@ export default class DyButton extends Vue {
     this.mode = 'dates';
   }
   private isCurrentMonth(date: Date) {
-    let {year, month} = this.tempTime;
+    let { year, month } = this.tempTime;
     let [y, m] = this.getYearMonthDay(date);
     return year === y && month === m;
   }
@@ -142,8 +143,8 @@ export default class DyButton extends Vue {
     return year === y && month === m && day === d;
   }
   private isSelect(date: Date) {
-    let {year, month, day} = this.time;
-    let[y, m, d] = this.getYearMonthDay(date);
+    let { year, month, day } = this.time;
+    let [y, m, d] = this.getYearMonthDay(date);
     return year === y && month === m && day === d;
   }
   private selectDate(date: Date) {
@@ -153,13 +154,19 @@ export default class DyButton extends Vue {
   }
   private changeYear(num: number) {
     // 不能直接加减
-    const oldDate = new Date(parseInt(this.tempTime.year, 0), parseInt(this.tempTime.month, 0));
+    const oldDate = new Date(
+      parseInt(this.tempTime.year, 0),
+      parseInt(this.tempTime.month, 0)
+    );
     const newDate = oldDate.setFullYear(oldDate.getFullYear() + num);
     let [year] = this.getYearMonthDay(new Date(newDate));
     this.tempTime.year = year;
   }
   private changeMonth(num: number) {
-    const oldDate = new Date(parseInt(this.tempTime.year, 0), parseInt(this.tempTime.month, 0));
+    const oldDate = new Date(
+      parseInt(this.tempTime.year, 0),
+      parseInt(this.tempTime.month, 0)
+    );
     const newDate = oldDate.setMonth(oldDate.getMonth() + num);
     let [year, month] = this.getYearMonthDay(new Date(newDate));
     this.tempTime.year = year;

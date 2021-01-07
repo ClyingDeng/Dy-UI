@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component({
-  name: 'DyRow',
+  name: 'DyRow'
 })
 export default class DyRow extends Vue {
   public static comName = 'DyRow';
@@ -10,18 +10,18 @@ export default class DyRow extends Vue {
       if (
         type &&
         !['start', 'end', 'center', 'space-around', 'space-between'].includes(
-          type,
+          type
         )
       ) {
         console.error(
           '类型必须是:' +
             ['start', 'end', 'center', 'space-around', 'space-between'].join(
-              '、',
-            ),
+              '、'
+            )
         );
       }
       return true;
-    },
+    }
   })
   private justify!: string;
 
@@ -31,7 +31,7 @@ export default class DyRow extends Vue {
       style = {
         ...style,
         marginLeft: -this.gutter / 2 + 'px',
-        marginRight: -this.gutter / 2 + 'px', // 通过外层的margin 负值 解决内部padding的问题
+        marginRight: -this.gutter / 2 + 'px' // 通过外层的margin 负值 解决内部padding的问题
       };
     }
     if (this.justify) {
@@ -40,7 +40,7 @@ export default class DyRow extends Vue {
         : this.justify;
       style = {
         ...style,
-        justifyContent: key,
+        justifyContent: key
       };
     }
     return style;

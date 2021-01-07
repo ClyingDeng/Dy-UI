@@ -5,7 +5,7 @@ declare module 'vue/types/vue' {
   }
 }
 @Component({
-  name: 'DyCol',
+  name: 'DyCol'
 })
 export default class DyCol extends Vue {
   public static comName = 'DyCol';
@@ -49,7 +49,7 @@ export default class DyCol extends Vue {
       style = {
         ...style,
         paddingLeft: this.gutter / 2 + 'px',
-        paddingRight: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
       };
     }
     return style;
