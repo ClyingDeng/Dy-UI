@@ -90,7 +90,6 @@ export default {
       }
       container.addEventListener('scroll', onScroll);
     }
-    console.log('指令生效');
   },
   unbind(el: any) {
     const { onScroll, container } = el[scope];

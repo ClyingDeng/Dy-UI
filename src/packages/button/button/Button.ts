@@ -26,7 +26,7 @@ export default class DyButton extends Vue {
     default: 'left',
     validator(type) {
       if (!['left', 'right'].includes(type)) {
-        console.log('iconPosition属性必须为：' + 'left | right');
+        throw new Error('iconPosition属性必须为：' + 'left | right');
       }
       return true;
     }
