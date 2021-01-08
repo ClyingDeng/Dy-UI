@@ -216,7 +216,7 @@
     {{ value1 }}
     <!-- <dy-date-picker v-model="value1"></dy-date-picker> -->
     <!-- <dy-date-range-picker></dy-date-range-picker> -->
-    <ul
+    <!-- <ul
       class="infinite-list"
       v-infinite-scroll="load"
       infinite-scroll-disabled="hasMore"
@@ -237,6 +237,17 @@
       </ul>
       <p v-if="loading">加载中...</p>
       <p v-if="noMore">没有更多了</p>
+    </div> -->
+    <div style="margin: 200px 200px;">
+      <dy-popover
+        placement="right"
+        title="标题"
+        width="200"
+        trigger="click"
+        content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+      >
+        <dy-button slot="reference">click 激活</dy-button>
+      </dy-popover>
     </div>
   </div>
 </template>

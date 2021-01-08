@@ -1,3 +1,82 @@
-.dy-Popover{
-    
+.dy-popover {
+    display : inline-block;
+    position: relative;
+}
+
+.dy-popover-content {
+    position     : absolute;
+    top          : 100px;
+    left         : 50px;
+    padding      : 10px;
+    border-radius: 4px;
+    z-index      : 10;
+    box-shadow   : -1px -1px 3px #ccc, 1px 1px 3px #ccc;
+    background   : #ffffff;
+}
+
+.arrow {
+    position: absolute;
+}
+
+.arrow::before,
+.arrow::after {
+    content            : "";
+    display            : block;
+    width              : 0;
+    height             : 0;
+    border             : 6px solid transparent;
+    border-bottom-color: #ccc;
+    position           : absolute;
+}
+
+.arrow::after {
+    border-bottom-color: #ffffff;
+    transform          : translateY(1px);
+    filter             : drop-shadow(0 -2px 1px #ccc);
+}
+
+.content-top {
+    .arrow {
+        left       : 50%;
+        margin-left: -6px;
+        bottom     : 0;
+
+        &::after,
+        &::before {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.content-bottom {
+    .arrow {
+        left       : 50%;
+        margin-left: -6px;
+        top        : -12px;
+    }
+}
+
+.content-left {
+    .arrow {
+        top        : 50%;
+        margin-top: -6px;
+        right      : 0;
+
+        &::after,
+        &::before {
+            transform: rotate(90deg);
+        }
+    }
+}
+.content-right {
+    .arrow {
+        top        : 50%;
+        margin-right: -6px;
+        left      : -12px;
+
+        &::after,
+        &::before {
+            transform: rotate(-90deg);
+        }
+    }
 }

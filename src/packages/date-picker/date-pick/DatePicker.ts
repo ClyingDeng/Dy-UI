@@ -93,7 +93,7 @@ export default class DyButton extends Vue {
       month,
       day
     };
-    console.log(this.mode);
+    // console.log(this.mode);
   }
   private handleChange(e: any) {
     // 失去焦点时更新用户输入
@@ -112,24 +112,20 @@ export default class DyButton extends Vue {
   private handleBlur() {
     this.isVisible = false;
     this.mode = 'dates';
-    console.log('handleBlur');
   }
   private handleFocus() {
     this.isVisible = true;
-    console.log('handleFocus');
   }
   private getCurrentDate(i: number, j: number) {
     return this.visibleData[(i - 1) * 7 + (j - 1)];
   }
   private isYear(date: string) {
     let [year] = this.getYearMonthDay(new Date());
-    console.log(year, date);
     return year === date;
   }
   // 从月 跳到date面板
   private monthToDate(m: string) {
     this.tempTime.month = m;
-    console.log(this.tempTime);
     this.mode = 'dates';
   }
   private isCurrentMonth(date: Date) {

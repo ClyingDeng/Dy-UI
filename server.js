@@ -16,10 +16,10 @@ router.post(
         maxCount: 5
     }]),
     ctx => {
-        console.log('ctx.request.files', ctx.request.files);
-        console.log('ctx.files', ctx.files);
-        console.log('ctx.request.body', ctx.request.body);
-        console.log(ctx.request.files)
+        // console.log('ctx.request.files', ctx.request.files);
+        // console.log('ctx.files', ctx.files);
+        // console.log('ctx.request.body', ctx.request.body);
+        // console.log(ctx.request.files)
         let r = ctx.request.files.avatar.map(item => ({
             url: item.path,
             name: item.originalname
