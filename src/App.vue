@@ -240,7 +240,7 @@
     </div> -->
     <div style="margin: 200px 200px;">
       <dy-popover
-        placement="right"
+        placement="top"
         title="标题"
         width="200"
         trigger="click"
@@ -249,6 +249,11 @@
         <dy-button slot="reference">click 激活</dy-button>
       </dy-popover>
     </div>
+    <dy-carousel height="200px" :autoplay="true" :delay="2000" :initial-index="0" :loop="true" @change="change">
+      <dy-carousel-item v-for="item in 4" :key="item">
+        <h3 class="small">{{ item }}</h3>
+      </dy-carousel-item>
+    </dy-carousel>
   </div>
 </template>
 
@@ -340,6 +345,9 @@ export default class App extends Vue {
   }
   private load() {
     this.count += 2;
+  }
+  private change() {
+    console.log('index');
   }
 }
 </script>
