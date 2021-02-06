@@ -1,5 +1,6 @@
 .dy-carousel {
     position: relative;
+    overflow: hidden;
 
     .viewport {
         height  : 100%;
@@ -17,26 +18,27 @@
     }
 
     .dots span {
-        display    : inline-block;
-        width      : 20px;
-        height     : 6px;
+        display      : inline-block;
+        width        : 20px;
+        height       : 6px;
         border-radius: 2px;
-        background : #ccc;
-        margin     : 5px;
-        text-indent: -9999px;
-        opacity    : 0.5;
-        cursor     : pointer;
+        background   : #ccc;
+        margin       : 5px;
+        text-indent  : -9999px;
+        opacity      : 0.5;
+        cursor       : pointer;
 
         &.active {
             opacity: 1;
         }
     }
+
     .arrow-box {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        display: flex;
+        position       : absolute;
+        top            : 50%;
+        transform      : translateY(-50%);
+        width          : 100%;
+        display        : flex;
         justify-content: space-between;
-      }
+    }
 }

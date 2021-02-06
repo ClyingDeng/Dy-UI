@@ -240,7 +240,7 @@
     </div> -->
     <div style="margin: 200px 200px;">
       <dy-popover
-        placement="top"
+        placement="left"
         title="标题"
         width="200"
         trigger="click"
@@ -248,8 +248,19 @@
       >
         <dy-button slot="reference">click 激活</dy-button>
       </dy-popover>
+      <dy-popover placement="left">
+        <p>这是一段内容这是一段内容确定删除吗？</p>
+        <dy-button slot="reference">删除</dy-button>
+      </dy-popover>
     </div>
-    <dy-carousel height="200px" :autoplay="true" :delay="2000" :initial-index="0" :loop="true" @change="change">
+    <dy-carousel
+      height="200px"
+      :autoplay="true"
+      :delay="2000"
+      :initial-index="0"
+      :loop="true"
+      @change="change"
+    >
       <dy-carousel-item style="background: #f0f">
         <h3 class="small">item1</h3>
       </dy-carousel-item>
@@ -292,6 +303,7 @@ export default class App extends Vue {
   private immediate: boolean = false;
   private count1: number = 10;
   private loading: boolean = false;
+  private visible: boolean = false;
   private get noMore() {
     return this.count1 >= 20;
   }
