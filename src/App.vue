@@ -250,8 +250,14 @@
       </dy-popover>
     </div>
     <dy-carousel height="200px" :autoplay="true" :delay="2000" :initial-index="0" :loop="true" @change="change">
-      <dy-carousel-item v-for="item in 4" :key="item">
-        <h3 class="small">{{ item }}</h3>
+      <dy-carousel-item style="background: #f0f">
+        <h3 class="small">item1</h3>
+      </dy-carousel-item>
+      <dy-carousel-item style="background: #00f">
+        <h3 class="small">u2</h3>
+      </dy-carousel-item>
+      <dy-carousel-item style="background: #ff0">
+        <h3 class="small">u3</h3>
       </dy-carousel-item>
     </dy-carousel>
   </div>
