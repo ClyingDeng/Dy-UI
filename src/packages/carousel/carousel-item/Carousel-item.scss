@@ -1,3 +1,32 @@
-.dy-carousel-item{
-    
+.dy-carousel-item {
+    height: 100%;
+    width : 100%;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: all 0.5s linear;
+}
+
+.v-enter {
+    transform: translateX(100%);
+}
+
+.v-leave-to {
+    transform: translateX(-100%);
+}
+
+.v-enter.reverse {
+    transform: translateX(-100%);
+}
+
+.v-leave-to.reverse {
+    transform: translateX(100%);
+}
+
+.v-enter-active {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
 }
