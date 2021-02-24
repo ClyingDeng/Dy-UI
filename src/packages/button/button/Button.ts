@@ -9,11 +9,11 @@ export default class DyButton extends Vue {
     validator(type) {
       if (
         type &&
-        !['warning', 'success', 'danger', 'info', 'primary'].includes(type)
+        !['warning', 'success', 'danger', 'info', 'primary', 'text'].includes(type)
       ) {
         console.error(
           'type类型必须为：' +
-            ['warning', 'success', 'danger', 'info', 'primary'].join('、')
+            ['warning', 'success', 'danger', 'info', 'primary', 'text'].join('、')
         );
       }
       return true;

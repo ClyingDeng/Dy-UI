@@ -214,6 +214,12 @@
     <dy-progress :percentage="70" :color="customColor2"></dy-progress>
     <dy-progress :percentage="30" :color="customColorMethod"></dy-progress>
     {{ value1 }}
+    <dy-pagination
+      :page-size="10"
+      :pager-count="7"
+      :total="10"
+      :current-page.sync="currentPage1"
+    ></dy-pagination>
     <!-- <dy-date-picker v-model="value1"></dy-date-picker> -->
     <!-- <dy-date-range-picker></dy-date-range-picker> -->
     <!-- <ul
@@ -304,6 +310,7 @@ export default class App extends Vue {
   private count1: number = 10;
   private loading: boolean = false;
   private visible: boolean = false;
+  private currentPage1: number = 8;
   private get noMore() {
     return this.count1 >= 20;
   }

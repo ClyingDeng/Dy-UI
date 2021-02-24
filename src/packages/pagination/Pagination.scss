@@ -1,0 +1,15 @@
+.dy-pagination {
+    ul {
+        list-style: none;
+        display   : inline-flex;
+
+        li {
+            margin: 5px;
+        }
+
+        li:hover,
+        li:focus {
+            color: $primary;
+        }
+    }
+}

@@ -74,6 +74,7 @@ export default class DyButton extends Vue {
     this.handleMouseEnter();
     // 需要记录拖拽前的位置
     this.startTouch = e.touches[0];
+
   }
   private handleTouchEnd(e: any) {
     let endTouch = e.changedTouches[0];
@@ -84,7 +85,7 @@ export default class DyButton extends Vue {
     // 是往哪边移动
 
     let disY = Math.abs(y2 - y1);
-    let x = (Math.sqrt(2) / 2) * distance;
+    let x = (Math.sqrt(2) / 2) * distance; // 最大角的y长
     if (disY < x) {
       if (x2 > x1) {
         this.select(this.currentSelected - 1, true);
