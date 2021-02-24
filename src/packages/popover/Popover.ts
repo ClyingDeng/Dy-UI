@@ -1,4 +1,4 @@
-import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 const on = (element: any, event: string, handler: any) => {
   element.addEventListener(event, handler, false);
 };

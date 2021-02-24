@@ -1,10 +1,10 @@
 // @import '../../styles/_var.scss';
-$height      : 42px;
-$font-size   :16px;
-$color       :#606266;
+$height         : 42px;
+$font-size      :16px;
+$color          :#606266;
 // $border-color:#dcdfe6;
-$background  :#ecf5ff;
-$active-color:#3a8ee6;
+$background     :#ecf5ff;
+$active-color   :#3a8ee6;
 
 .dy-btn {
     border-radius      : $border-radius;
@@ -67,7 +67,7 @@ $active-color:#3a8ee6;
 
         }
     }
-  
+
 
 
     @each $type,
@@ -124,5 +124,32 @@ $active-color:#3a8ee6;
             margin-right: 4px;
         }
     }
+
+    &-text {
+        border    : 0 solid transparent;
+        background: transparent;
+
+        &[disabled] {
+            cursor    : not-allowed;
+            border    : 0 solid transparent;
+            background: transparent;
+            color     : #ccc;
+        }
+
+        &[disabled]:hover {
+            cursor    : not-allowed;
+            border    : 0 solid transparent;
+            background: transparent;
+            color     : #ccc;
+        }
+    }
+
+    &-text:hover,
+    &-text:focus {
+        border    : 0 solid transparent;
+        background: transparent;
+        color     : $primary-active;
+    }
+
 
 }
