@@ -1,15 +1,92 @@
 .dy-pagination {
+    white-space: nowrap;
+    padding    : 2px 5px;
+    color      : #303133;
+    font-weight: 700;
+
     ul {
         list-style: none;
         display   : inline-flex;
 
         li {
-            margin: 5px;
+            cursor        : pointer;
+            padding       : 0 4px;
+            background    : #fff;
+            vertical-align: top;
+            display       : inline-block;
+            font-size     : 13px;
+            min-width     : 35.5px;
+            height        : 28px;
+            line-height   : 28px;
+            cursor        : pointer;
+            box-sizing    : border-box;
+            text-align    : center;
+            margin        : 0;
         }
 
-        li:hover,
-        li:focus {
-            color: $primary;
+    }
+
+    // li:hover,
+    li:focus {
+        color: $primary;
+    }
+
+
+    .active {
+        color : $primary;
+        cursor: default;
+    }
+
+    .disabled,
+    .disabled:hover {
+        cursor: not-allowed;
+        color : #c0c4cc;
+    }
+}
+
+.is-background {
+    .dy-btn {
+        padding: 0 5px;
+        height : 28px;
+
+        &[disabled],
+        &[disabled]:hover {
+            cursor    : not-allowed;
+            border    : 0 solid transparent;
+            background: #f4f4f5;
+            color     : #c0c4cc;
+        }
+
+    }
+
+    .dy-btn,
+    ul>li {
+        margin       : 0 5px;
+        background   : #f4f4f5;
+        color        : #606266;
+        min-width    : 30px;
+        border-radius: 2px;
+    }
+
+    ul {
+
+        li:focus,
+        .active {
+            color     : #fff;
+            background: $primary;
+        }
+
+        .active:hover {
+            color: #fff;
+        }
+
+        .disabled,
+        .disabled:hover {
+            background: #f4f4f5;
+            cursor    : not-allowed;
+            border    : 0 solid transparent;
+            color     : #c0c4cc;
         }
     }
+
 }

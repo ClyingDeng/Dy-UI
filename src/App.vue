@@ -216,8 +216,10 @@
     {{ value1 }}
     <dy-pagination
       :page-size="10"
-      :pager-count="7"
+      :pager-count="5"
       :total="10"
+      background
+      disabled
       :current-page.sync="currentPage1"
     ></dy-pagination>
     <!-- <dy-date-picker v-model="value1"></dy-date-picker> -->
@@ -310,7 +312,7 @@ export default class App extends Vue {
   private count1: number = 10;
   private loading: boolean = false;
   private visible: boolean = false;
-  private currentPage1: number = 8;
+  private currentPage1: number = 5;
   private get noMore() {
     return this.count1 >= 20;
   }
