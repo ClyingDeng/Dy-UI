@@ -12,37 +12,73 @@ export default class DyPagination extends Vue {
   private pageCount!: number;
   @Prop({ default: 7 }) // 按钮数
   private pagerCount!: number;
-  @Prop()
+  @Prop(Boolean)
   private disabled!: boolean;
-  private showPreMore: boolean = false;
+  @Prop(Boolean) // 父组件调用可以直接使用 background
+  private background!: boolean;
+  private showPrevMore: boolean = false;
   private showNextMore: boolean = false;
   private get pagers() {
     let arr = [];
-    let pagerCount = this.pagerCount;
+    let pagerCount = this.pagerCount; // 显示几个分页按钮
     let total = this.total;
     let currentPage = this.currentPage;
-    let showPreMore = this.showPreMore;
-    let showNextMore = this.showNextMore;
+    let showPrevMore = false;
+    let showNextMore = false;
     let middleValue = Math.floor(pagerCount / 2);
     // 显示。。。
     if (total > pagerCount) {
       // 左边显示。。。
       if (currentPage > middleValue + 1) {
-        showPreMore = true;
+        showPrevMore = true;
       }
       // 右边显示。。。
       if (currentPage < total - middleValue) {
         showNextMore = true;
       }
     }
-    for (let i = 2; i < this.total; i++) {
+    // 分页数从几开始显示
+    if (showPrevMore && !showNextMore) {
+      // 左边有。。。   1 ... 5 6 7 8 9 10
+      let start = total - (pagerCount - 2);
+      for (let i = start; i < total; i++) {
         arr.push(i);
+      }
+    } else if (!showPrevMore && showNextMore) {
+      // 右边有。。。   1 2 3 4 5 6 ... 10
+      for (let i = 2; i < pagerCount; i++) {
+        arr.push(i);
+      }
+    } else if (showPrevMore && showNextMore) {
+      // 左右都有 1 ... 3 4 5 6 7 8 ... 10
+      let val = Math.floor((pagerCount - 2) / 2); // (中间显示几个) / 2 ==> 左右各几个
+      for (let i = currentPage - val; i <= currentPage + val; i++) {
+        arr.push(i);
+      }
+    } else {
+      for (let i = 2; i < total; i++) {
+        arr.push(i);
+      }
     }
-    this.showPreMore = showPreMore;
+
+    this.showPrevMore = showPrevMore;
     this.showNextMore = showNextMore;
     return arr;
   }
+  private select(currentPage: number) {
+    if (!this.disabled) {
+      if (currentPage < 1) {
+        currentPage = 1;
+      }
+      if (currentPage > this.total) {
+        currentPage = this.total;
+      }
+      if (currentPage !== this.currentPage) {
+        this.$emit('update:current-page', currentPage);
+      }
+    }
+  }
   private mounted() {
-    console.log(this.currentPage);
+    console.log(this.disabled, this.background);
   }
 }
