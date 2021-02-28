@@ -22,6 +22,7 @@ import infiniteScroll from './infiniteScroll';
 import DyCarousel from './carousel/carousel/Carousel.vue';
 import DyCarouselItem from './carousel/carousel-item/Carousel-item.vue';
 import DyPagination from './pagination/Pagination.vue';
+import DyTable from './table/Table.vue';
 let components = [
   DyButton,
   DyIcon,
@@ -41,7 +42,8 @@ let components = [
   DyPopover,
   DyCarousel,
   DyCarouselItem,
-  DyPagination
+  DyPagination,
+  DyTable
 ];
 // console.log(infiniteScroll, infiniteScroll.comName);
 const install = (Vue: any) => {

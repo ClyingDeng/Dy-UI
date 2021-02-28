@@ -1,0 +1,57 @@
+.dy-table {
+    position: relative;
+    table {
+        width          : 100%;
+        // 合并边框
+        border-collapse: collapse;
+        border-spacing: 0;
+        th {
+            background: #eee;
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid #ddd;
+            padding      : 8px;
+            text-align   : left;
+        }
+
+        .dy-table-cell {
+            display: flex;
+
+            .sortable {
+                display       : flex;
+                flex-direction: column;
+                margin-left   : 5px;
+                vertical-align: middle;
+                cursor        : pointer;
+
+                .dy-icon {
+                    height: 10px;
+                    width: 10px;
+                    color     : #c5c8ce;
+                    transition: color .2s ease-in-out;
+                    font-size : 6px;
+                }
+
+                .dy-icon-down {
+                    margin-top: -2px;
+                }
+
+                .dy-icon:hover,
+                .dy-icon:focus,
+                .active {
+                    color: #2c3e50;
+                }
+            }
+        }
+    }
+}
+.fix-table {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+}
+.table-wrapper {
+    overflow-y: scroll;
+}
