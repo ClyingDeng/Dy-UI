@@ -1,0 +1,42 @@
+.dy-table {
+    table {
+        width          : 100%;
+        // 合并边框
+        border-collapse: collapse;
+
+        th,
+        td {
+            border-bottom: 1px solid #ddd;
+            padding      : 8px;
+            text-align   : left;
+        }
+
+        .dy-table-cell {
+            display: flex;
+
+            .sortable {
+                display       : flex;
+                flex-direction: column;
+                margin-left   : 5px;
+                vertical-align: middle;
+                cursor        : pointer;
+
+                .dy-icon {
+                    color     : #c5c8ce;
+                    transition: color .2s ease-in-out;
+                    font-size : 6px;
+                }
+
+                .dy-icon-down {
+                    margin-top: -2px;
+                }
+
+                .dy-icon:hover,
+                .dy-icon:focus,
+                .active {
+                    color: #2c3e50;
+                }
+            }
+        }
+    }
+}

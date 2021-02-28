@@ -214,6 +214,17 @@
     <dy-progress :percentage="70" :color="customColor2"></dy-progress>
     <dy-progress :percentage="30" :color="customColorMethod"></dy-progress>
     {{ value1 }}
+    <dy-table
+      :columns="columns1"
+      :data="data1"
+      @on-select="select"
+      @on-select-all="selectAll"
+      @on-sort-change="sortChange"
+    >
+      <template slot="name" slot-scope="{ row, col }">
+        <h1>{{ row[col.key] }}</h1>
+      </template>
+    </dy-table>
     <dy-pagination
       :page-size="10"
       :pager-count="5"
@@ -313,6 +324,55 @@ export default class App extends Vue {
   private loading: boolean = false;
   private visible: boolean = false;
   private currentPage1: number = 5;
+  private columns1: any[] = [
+    {
+      type: 'selection',
+      width: 60,
+      align: 'center'
+    },
+    {
+      title: 'Name',
+      key: 'name',
+      slot: 'name'
+    },
+    {
+      title: 'Age',
+      key: 'age',
+      sortable: true, // iview 默认排序 排序方法 custom（远程排序）
+      sortType: 'asc'
+    },
+    {
+      title: 'Address',
+      key: 'address',
+      sortable: 'custom'
+    }
+  ];
+  private data1: any[] = [
+    {
+      name: 'John Brown',
+      age: 18,
+      address: 'New York No. 1 Lake Park',
+      date: '2016-10-03'
+    },
+    {
+      name: 'Jim Green',
+      age: 24,
+      address: 'London No. 1 Lake Park',
+      date: '2016-10-01'
+    },
+    {
+      name: 'Joe Black',
+      age: 22,
+      address: 'Sydney No. 1 Lake Park',
+      date: '2016-10-02'
+    },
+    {
+      name: 'Jon Snow',
+      age: 46,
+      address: 'Ottawa No. 2 Lake Park',
+      date: '2016-10-04'
+    }
+  ];
   private get noMore() {
     return this.count1 >= 20;
   }
@@ -375,6 +435,17 @@ export default class App extends Vue {
   }
   private change() {
     console.log('index');
+  }
+  // 表格
+  private select(selection: any, row: any) {
+    // selection 表示选中的所有的 row表示当前是哪一行
+    console.log(selection, row);
+  }
+  private selectAll(selection: any) {
+    console.log(selection);
+  }
+  private sortChange(col: any, type: string) {
+    console.log(col, type);
   }
 }
 </script>
