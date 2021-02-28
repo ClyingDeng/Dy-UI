@@ -6,6 +6,8 @@ export default class DyTable extends Vue {
   private columns!: any[];
   @Prop({ default: () => [] })
   private data!: any[];
+  @Prop({ default: '' })
+  private height!: string;
   private cloneColumns: any[] = [];
   private cloneData: any[] = [];
   private selectItems: any = [];
@@ -36,6 +38,32 @@ export default class DyTable extends Vue {
       this.sort(col, col.sortType);
       return col;
     });
+    if (this.height) {
+      let wrapper = this.$refs.wrapper;
+      let tableWrapper = this.$refs.tableWrapper;
+      let table: any = this.$refs.table;
+
+      let copyTable: any = (table as HTMLElement).cloneNode(); // 只拷贝表格
+      let thead = (table as HTMLElement).children[0];
+      console.log(thead, thead.getElementsByTagName('thead'));
+      (tableWrapper as HTMLElement).style.paddingTop =
+        thead.getBoundingClientRect().height + 'px';
+    //   copyTable.appendChild(thead);
+      (copyTable as HTMLElement).style.width =
+        (table as HTMLElement).offsetWidth + 'px';
+      (copyTable as HTMLElement).classList.add('fix-header');
+      //   let tds: any = (table as HTMLSelectElement).querySelector('tbody tr')!
+      //     .children;
+      //   let ths: any = (copyTable as HTMLSelectElement).querySelector('thead tr')!
+      //     .children;
+    //   let tds = table.querySelector('tbody tr').children;
+    //   let ths = copyTable.querySelector('thead tr').children;
+    //   tds.forEach((item: any, index: number) => {
+    //     ths[index].style.width = item.getBoundingClientRect().width + 'px';
+    //   });
+
+      (wrapper as HTMLElement).appendChild(copyTable);
+    }
   }
   private isAsc(col: any) {
     return col.sortType === 'asc';

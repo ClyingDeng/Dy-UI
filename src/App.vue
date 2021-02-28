@@ -220,9 +220,13 @@
       @on-select="select"
       @on-select-all="selectAll"
       @on-sort-change="sortChange"
+      height="200px"
     >
       <template slot="name" slot-scope="{ row, col }">
         <h1>{{ row[col.key] }}</h1>
+      </template>
+      <template slot="action" slot-scope="{ row, col }">
+        <dy-button type='text'>删除</dy-button>
       </template>
     </dy-table>
     <dy-pagination
@@ -345,6 +349,11 @@ export default class App extends Vue {
       title: 'Address',
       key: 'address',
       sortable: 'custom'
+    },
+    {
+      title: 'operator',
+      slot: 'action',
+      key: 'operator'
     }
   ];
   private data1: any[] = [
