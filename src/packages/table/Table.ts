@@ -46,7 +46,7 @@ export default class DyTable extends Vue {
 
         let copyTable: any = (table as HTMLElement).cloneNode(); // 只拷贝表格
         let thead = (table as HTMLElement).children[0];
-        console.log(table, thead.getBoundingClientRect().height); // 之前高度为0 需要先确认子元素是否浮动,有则清除浮动;确保元素已经渲染$nextTick
+        // console.log(table, thead.getBoundingClientRect().height); // 之前高度为0 需要先确认子元素是否浮动,有则清除浮动;确保元素已经渲染$nextTick
         (tableWrapper as HTMLElement).style.paddingTop =
           thead.getBoundingClientRect().height + 'px';
         copyTable.appendChild(thead);
