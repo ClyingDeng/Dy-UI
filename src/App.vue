@@ -454,7 +454,7 @@ export default class App extends Vue {
     console.log(selection);
   }
   private sortChange(col: any, type: string) {
-    console.log(col, type);
+    // console.log(col, type);
   }
 }
 </script>

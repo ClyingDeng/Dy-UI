@@ -78,7 +78,4 @@ export default class DyPagination extends Vue {
       }
     }
   }
-  private mounted() {
-    console.log(this.disabled, this.background);
-  }
 }

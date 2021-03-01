@@ -38,32 +38,29 @@ export default class DyTable extends Vue {
       this.sort(col, col.sortType);
       return col;
     });
-    if (this.height) {
-      let wrapper = this.$refs.wrapper;
-      let tableWrapper = this.$refs.tableWrapper;
-      let table: any = this.$refs.table;
+    this.$nextTick(() => {
+      if (this.height) {
+        let wrapper = this.$refs.wrapper; // 生成的新表格放里面
+        let tableWrapper = this.$refs.tableWrapper; // 没有表头，上方padding头
+        let table: any = this.$refs.table; // 把head拿出来
 
-      let copyTable: any = (table as HTMLElement).cloneNode(); // 只拷贝表格
-      let thead = (table as HTMLElement).children[0];
-      console.log(thead, thead.getElementsByTagName('thead'));
-      (tableWrapper as HTMLElement).style.paddingTop =
-        thead.getBoundingClientRect().height + 'px';
-    //   copyTable.appendChild(thead);
-      (copyTable as HTMLElement).style.width =
-        (table as HTMLElement).offsetWidth + 'px';
-      (copyTable as HTMLElement).classList.add('fix-header');
-      //   let tds: any = (table as HTMLSelectElement).querySelector('tbody tr')!
-      //     .children;
-      //   let ths: any = (copyTable as HTMLSelectElement).querySelector('thead tr')!
-      //     .children;
-    //   let tds = table.querySelector('tbody tr').children;
-    //   let ths = copyTable.querySelector('thead tr').children;
-    //   tds.forEach((item: any, index: number) => {
-    //     ths[index].style.width = item.getBoundingClientRect().width + 'px';
-    //   });
-
-      (wrapper as HTMLElement).appendChild(copyTable);
-    }
+        let copyTable: any = (table as HTMLElement).cloneNode(); // 只拷贝表格
+        let thead = (table as HTMLElement).children[0];
+        console.log(table, thead.getBoundingClientRect().height); // 之前高度为0 需要先确认子元素是否浮动,有则清除浮动;确保元素已经渲染$nextTick
+        (tableWrapper as HTMLElement).style.paddingTop =
+          thead.getBoundingClientRect().height + 'px';
+        copyTable.appendChild(thead);
+        (copyTable as HTMLElement).style.width =
+          (table as HTMLElement).offsetWidth + 'px';
+        (copyTable as HTMLElement).classList.add('fix-header');
+        let tds: any = table.querySelector('tbody tr').children;
+        let ths: any = copyTable.querySelector('thead tr').children;
+        tds.forEach((item: any, index: number) => {
+          ths[index].style.width = item.getBoundingClientRect().width + 'px';
+        });
+        (wrapper as HTMLElement).appendChild(copyTable);
+      }
+    });
   }
   private isAsc(col: any) {
     return col.sortType === 'asc';
