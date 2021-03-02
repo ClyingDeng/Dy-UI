@@ -27,7 +27,6 @@
               isToday: isToday(getCurrentDate(i, j)),
               isSelect: isSelect(getCurrentDate(i, j))
             }">
-              <!--   -->
               {{getCurrentDate(i, j).getDate()}}
             </span>
           </div>

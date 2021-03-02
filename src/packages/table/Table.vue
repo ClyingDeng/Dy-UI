@@ -1,6 +1,6 @@
 <template>
   <div class="dy-table" ref="wrapper">
-    <div class="table-wrapper" :style="{ height }" ref="tableWrapper">
+    <div :style="{ height }" ref="tableWrapper">
       <table ref="table">
         <thead>
           <tr>

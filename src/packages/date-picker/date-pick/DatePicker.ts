@@ -11,6 +11,9 @@ export default class DyButton extends Vue {
   public static comName = 'DyDatePicker';
   @Prop({ default: () => new Date() })
   private value!: string | Date;
+  @Prop({ default: 'date' })
+  private type!: string;
+
   private isVisible: boolean = false;
   private mode: string = 'dates'; // dates years months
   private time: Time = {
@@ -93,6 +96,9 @@ export default class DyButton extends Vue {
       month,
       day
     };
+    if (this.type) {
+      this.mode = this.type;
+    }
     // console.log(this.mode);
   }
   private handleChange(e: any) {
@@ -102,7 +108,11 @@ export default class DyButton extends Vue {
     if (newValue.match(regExp)) {
       this.$emit(
         'input',
-        new Date(parseInt(RegExp.$1, 0), parseInt(RegExp.$2, 0), parseInt(RegExp.$3, 0))
+        new Date(
+          parseInt(RegExp.$1, 0),
+          parseInt(RegExp.$2, 0),
+          parseInt(RegExp.$3, 0)
+        )
       );
     } else {
       e.target.value = this.formateDate; // 将原来的值附回去

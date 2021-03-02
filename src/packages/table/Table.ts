@@ -44,6 +44,7 @@ export default class DyTable extends Vue {
         let tableWrapper = this.$refs.tableWrapper; // 没有表头，上方padding头
         let table: any = this.$refs.table; // 把head拿出来
 
+        (tableWrapper as HTMLElement).classList.add('table-wrapper');
         let copyTable: any = (table as HTMLElement).cloneNode(); // 只拷贝表格
         let thead = (table as HTMLElement).children[0];
         // console.log(table, thead.getBoundingClientRect().height); // 之前高度为0 需要先确认子元素是否浮动,有则清除浮动;确保元素已经渲染$nextTick
