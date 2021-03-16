@@ -37,16 +37,14 @@
             <span> <b>{{ startYear }}</b> 年 - <b>{{ startYear + 9 }}</b> 年</span>
             <dy-icon icon="dy-icon-doubleright" @click="changeYear(10)"></dy-icon>
           </div>
-          <!-- <div class="yearContent" v-for="y in 10" :key="y"> -->
             <span class="cell cell-year"  v-for="y in 10" :key="y"
             :class="{
               isYear: isYear( startYear + y - 1),
             }"
-             @click="mode = 'months'"
+             @click="yearToMonth(startYear + y - 1)"
             >
               {{ startYear + y - 1 }}
             </span>
-          <!-- </div> -->
         </template>
         <template v-if="mode === 'months'">
           <div class="dy-date-picker-header">
@@ -55,7 +53,7 @@
             <dy-icon icon="dy-icon-doubleright" @click="changeYear(10)"></dy-icon>
           </div>
           <span class="cell cell-year"  v-for="m in 12" :key="m"
-             @click="monthToDate(m)"
+             @click="monthToDate(m -1)"
             >
               {{ m }} 月
             </span>

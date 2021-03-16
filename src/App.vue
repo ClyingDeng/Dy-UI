@@ -237,8 +237,8 @@
       disabled
       :current-page.sync="currentPage1"
     ></dy-pagination> -->
-    <!-- <dy-date-picker v-model="value1"></dy-date-picker>
-    <dy-date-range-picker></dy-date-range-picker> -->
+    <dy-date-picker v-model="value1"></dy-date-picker>
+    <dy-date-range-picker></dy-date-range-picker>
     <!-- <ul
       class="infinite-list"
       v-infinite-scroll="load"

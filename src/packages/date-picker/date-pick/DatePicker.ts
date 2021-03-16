@@ -96,10 +96,10 @@ export default class DyButton extends Vue {
       month,
       day
     };
-    if (this.type) {
-      this.mode = this.type;
-    }
-    // console.log(this.mode);
+    // if (this.type) {
+    //   this.mode = this.type;
+    // }
+    console.log(this.mode);
   }
   private handleChange(e: any) {
     // 失去焦点时更新用户输入
@@ -135,9 +135,16 @@ export default class DyButton extends Vue {
   }
   // 从月 跳到date面板
   private monthToDate(m: string) {
+    console.log(m);
     this.tempTime.month = m;
     this.mode = 'dates';
   }
+  private yearToMonth(m: string) {
+    console.log(m);
+    this.tempTime.year = m;
+    this.mode = 'months';
+  }
+
   private isCurrentMonth(date: Date) {
     let { year, month } = this.tempTime;
     let [y, m] = this.getYearMonthDay(date);
